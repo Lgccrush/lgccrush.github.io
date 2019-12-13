@@ -192,10 +192,9 @@
 <p>转换为数组toArray() 获取迭代器Iterator iterator();</p>
 <p>数组转为集合 Array.asList</p>
 <h4 id="Iterator"><a href="#Iterator" class="headerlink" title="Iterator"></a>Iterator</h4><p>遍历集合使用iterator 是一种迭代模式</p>
-<p>首先获得迭代器 Iterator i = Collection.iterator();</p>
-<p>for(i.hasNext){</p>
-<p>​    System.out.println(i.next());</p>
-<p>}</p>
+<p>首先获得迭代器</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line"> Iterator i = Collection.iterator();</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span>(i.hasNext)&#123;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line">​	System.out.println(i.next());</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">4</span></pre></td><td class="code"><pre><span class="line">&#125;</span></pre></td></tr></table></figure>
+
 <p>遍历时有指针默认在集合第一个元素前</p>
 <p>其中主要方法 hasNext(),判断下一个是否有元素</p>
 <p>next方法会移动指针 会返回下移到所在位置的元素</p>
@@ -214,13 +213,13 @@
 <p>增删快,查找修改慢, 是线程不安全的</p>
 <h4 id="Vector"><a href="#Vector" class="headerlink" title="Vector"></a>Vector</h4><p>早期的集合 比接口List还早 线程安全的 效率低 底层也是Object[]实现的</p>
 <p>扩容是原数组的2倍</p>
-<p>Set 主要实现类 HashSet LinkedHashSet TreeSet</p>
+<p><strong>Set 主要实现类 HashSet LinkedHashSet TreeSet</strong></p>
 <p>特点 存储无序 不重复的 </p>
-<p>无序体现的是不是按照数组的索引排列,而是根据hash值</p>
-<p>不重复是比较hash值还有比较equals</p>
+<p><strong>无序体现的是不是按照数组的索引排列,而是根据hash值</strong></p>
+<p><strong>不重复是比较hash值还有比较equals</strong></p>
 <p>对于HashSet LinkedHashSet 添加的对象要重写hashcode和equals方法</p>
 <p>TreeSet 比较方法是基于comperable 和 compartor 底层是红黑树实现</p>
-<p>我们如何需要频繁使用遍历 建议使用LinkedHashSet 因为它低层是链表实现</p>
+<p>我们如何需要频繁使用遍历 建议使用LinkedHashSet 因为它底层是链表实现</p>
 <p>维护了前一个和后一个</p>
 <p>Set添加元素时 首先比较hashcode在比较equals 添加成功在同一位置</p>
 <p>JDK7新添的元素会在数组中 原来的会在链表下</p>
