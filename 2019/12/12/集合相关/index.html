@@ -180,16 +180,18 @@
       
         <h3 id="ONE"><a href="#ONE" class="headerlink" title="ONE"></a>ONE</h3><a id="more"></a>
 
-<h3 id="集合概述"><a href="#集合概述" class="headerlink" title="集合概述"></a>集合概述</h3><p>和数组一样,都是堆多个数据进行储存操作的结果,简称Java容器</p>
+<h3 id="集合概述"><a href="#集合概述" class="headerlink" title="集合概述"></a>集合概述</h3><p>和数组一样,都是对多个数据进行储存操作的结果,简称Java容器</p>
 <p>此时的存储 是指内存的储存 不涉及持久化储存(txt,jpg,avi,数据库中)</p>
-<p>主要两个接口 Collection 和 Map</p>
-<h3 id="Collection"><a href="#Collection" class="headerlink" title="Collection"></a>Collection</h3><p>是单列数组,主要方法 创建集合引用子类对象</p>
-<p>添加元素add(obj),添加的对象,对象要重写equals方法 addAll(Collection c)添加集合</p>
+<p>主要有两个接口 Collection 和 Map</p>
+<h3 id="Collection"><a href="#Collection" class="headerlink" title="Collection"></a>Collection</h3><p>是单列集合,主要方法 创建集合引用子类对象</p>
+<p>添加的对象,对象要重写equals方法 因为判断是否包含要作比较</p>
+<p>添加元素add(obj),/ addAll(Collection c)添加集合</p>
 <p>删除元素remove(obj),删除所有void clear();判断是否为空isEmpty();</p>
 <p>判断是否包含元素contains(obj);判断是否包含集合containsAll(Collection c);</p>
 <p>获取hashcode值 判断元素是否与集合相等equals(obj)</p>
 <p>转换为数组toArray() 获取迭代器Iterator iterator();</p>
-<h4 id="Iterator"><a href="#Iterator" class="headerlink" title="Iterator"></a>Iterator</h4><p>遍历集合使用iterator</p>
+<p>数组转为集合 Array.asList</p>
+<h4 id="Iterator"><a href="#Iterator" class="headerlink" title="Iterator"></a>Iterator</h4><p>遍历集合使用iterator 是一种迭代模式</p>
 <p>首先获得迭代器 Iterator i = Collection.iterator();</p>
 <p>for(i.hasNext){</p>
 <p>​    System.out.println(i.next());</p>
@@ -197,11 +199,32 @@
 <p>遍历时有指针默认在集合第一个元素前</p>
 <p>其中主要方法 hasNext(),判断下一个是否有元素</p>
 <p>next方法会移动指针 会返回下移到所在位置的元素</p>
-<p>Set和List接口继承了Collection</p>
-<p>三个List的实现类 ArrayList,LinkedList,Voctor存储有序可以重复</p>
-<h4 id="ArrayList"><a href="#ArrayList" class="headerlink" title="ArrayList"></a>ArrayList</h4><p>底层是Object[]实现 ,增删慢,查找,更改快,线程安全的效率低 </p>
-<h4 id="LinkedList"><a href="#LinkedList" class="headerlink" title="LinkedList"></a>LinkedList</h4><p>底部是双向链表实现,增删快,查找修改慢, 是线程不安全的</p>
-<h4 id="Vector"><a href="#Vector" class="headerlink" title="Vector"></a>Vector</h4><p>早期的集合 比接口List还早 线程不安全的 效率高</p>
+<p><u><strong>Set和List接口继承了Collection</strong></u></p>
+<p><strong>常用的List的三个实现类 ArrayList,LinkedList,Voctor 都是存储有序可以重复的数据</strong></p>
+<p>List有索引 有自己的方法</p>
+<p>增add(obj) 删remove(可以元素 也可以集合) 改set 查get()  </p>
+<p>插入add(index,obj) 长度size(是添加元素的个数) </p>
+<p>遍历1foreach 2 iterator 3 普通for循环</p>
+<h4 id="ArrayList"><a href="#ArrayList" class="headerlink" title="ArrayList"></a>ArrayList</h4><p>底层是Object[]实现 , 有索引,插入和删除慢,查找,更改快,线程不安全的效率高 </p>
+<p>1.7初始化就是长度为10 </p>
+<p>1.8初始化是{} 在add的时候才初始化长度</p>
+<p>扩容是原数组的1.5倍</p>
+<p>已知长度的时候建议用有参构造方法</p>
+<h4 id="LinkedList"><a href="#LinkedList" class="headerlink" title="LinkedList"></a>LinkedList</h4><p>底部是双向链表实现,有Node结构 分为三部分 prev 元素 next</p>
+<p>增删快,查找修改慢, 是线程不安全的</p>
+<h4 id="Vector"><a href="#Vector" class="headerlink" title="Vector"></a>Vector</h4><p>早期的集合 比接口List还早 线程安全的 效率低 底层也是Object[]实现的</p>
+<p>扩容是原数组的2倍</p>
+<p>Set 主要实现类 HashSet LinkedHashSet TreeSet</p>
+<p>特点 存储无序 不重复的 </p>
+<p>无序体现的是不是按照数组的索引排列,而是根据hash值</p>
+<p>不重复是比较hash值还有比较equals</p>
+<p>对于HashSet LinkedHashSet 添加的对象要重写hashcode和equals方法</p>
+<p>TreeSet 比较方法是基于comperable 和 compartor 底层是红黑树实现</p>
+<p>我们如何需要频繁使用遍历 建议使用LinkedHashSet 因为它低层是链表实现</p>
+<p>维护了前一个和后一个</p>
+<p>Set添加元素时 首先比较hashcode在比较equals 添加成功在同一位置</p>
+<p>JDK7新添的元素会在数组中 原来的会在链表下</p>
+<p>JDK8新添的元素会在链表下 原来的会在数组中</p>
 
       
 
@@ -467,11 +490,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">java</a>
+                <a href="javascript:void(0)" class="js-tag color5">word</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">word</a>
+                <a href="javascript:void(0)" class="js-tag color5">java</a>
               </li>
              
               <li class="article-tag-list-item">
