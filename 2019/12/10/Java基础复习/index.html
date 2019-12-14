@@ -215,6 +215,17 @@
 <hr>
 <ul>
 <li><p>运算符 参与运算时  ++在前 先自增再运算 ++在后 先运算再自增 –同理</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> a1 = <span class="number">10</span>;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> a2 = a1++;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line">System.out.println(a1+<span class="string">".."</span>+a2);<span class="comment">//a1=11,a2=10</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">4</span></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> a3 = <span class="number">10</span>;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">5</span></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> a4 = ++a1;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">6</span></pre></td><td class="code"><pre><span class="line">System.out.println(a3+<span class="string">".."</span>+a4);<span class="comment">//a3=11,a4=11</span></span></pre></td></tr></table></figure>
+
+
+
+</li>
+</ul>
+<ul>
+<li><p>%符号只与左边有关</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> a1 = <span class="number">10</span>;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> a2 = -<span class="number">3</span>;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line">System.out.println(a1%a2);<span class="comment">//结果为1</span></span></pre></td></tr></table></figure>
+</li>
+<li><p>除法得到的是整数 <code>System.out.println(a1/a2)//结果是-3;</code></p>
 </li>
 <li><p>&amp;和&amp;&amp;   &amp;&amp;有短路效果 遇到false就不执行了</p>
 </li>
@@ -232,6 +243,7 @@
 <hr>
 <h3 id="流程控制-if-条件为Boolean-多个判断配合else"><a href="#流程控制-if-条件为Boolean-多个判断配合else" class="headerlink" title="流程控制 if 条件为Boolean 多个判断配合else"></a>流程控制 if 条件为Boolean 多个判断配合else</h3><ul>
 <li>switch case  注意case没有breaker 会有穿透效果 default最后执行    </li>
+<li>case后面只能是常量 不声明范围 , switch 可以有byte short char  int  枚举(1.5)  String(1.7)</li>
 </ul>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span>(初始条件;循环条件(Boolean);迭代条件)&#123;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line">​		循环体;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line">​		&#125;</span></pre></td></tr></table></figure>
 
@@ -239,8 +251,9 @@
 
 <p><code>死循环 for(;;) while(true)</code></p>
 <hr>
-<p>​    关键字 break在循环跳出循环 也可以在switch中</p>
+<p>​    关键字 break在循环跳出循环 也可以在switch中  </p>
 <p>​                continue终止本次循环 继续下次循环</p>
+<p>​    break 和 continue后面不能接语句</p>
 <hr>
 <h3 id="数组-多组相同数据按一定顺序排列的集合"><a href="#数组-多组相同数据按一定顺序排列的集合" class="headerlink" title="数组 多组相同数据按一定顺序排列的集合"></a>数组 多组相同数据按一定顺序排列的集合</h3><p>​    <code>int[] arr = new int[2]; int[] arr = {1,2};</code></p>
 <p>​    一旦初始化长度不能改变  索引以0开始</p>
@@ -268,11 +281,12 @@
 <hr>
 <p>​    方法 修饰符 返回值类型 方法名(参数){方法体}</p>
 <p>​    关键字 return 当方法没有返回值 结束方法 有就返回数据</p>
-<p>​    方法重载 同一个类 方法名相同 参数列表.参数个数不同 例如println</p>
+<p>​    方法重载 同一个类 方法名相同 参数类型.参数个数不同 例如println</p>
 <p>​    <strong>值传递  基本数据是传递保存的数据  引用类型是传递地址值</strong></p>
 <p>​    递归 方法内调用本身</p>
 <hr>
-<h3 id="封装-隐藏具体的实现属性-仅对外提供公共的访问方式"><a href="#封装-隐藏具体的实现属性-仅对外提供公共的访问方式" class="headerlink" title="封装 隐藏具体的实现属性 仅对外提供公共的访问方式"></a><strong>封装 隐藏具体的实现属性 仅对外提供公共的访问方式</strong></h3><h6 id="提高了安全性-可维护性-可扩展性"><a href="#提高了安全性-可维护性-可扩展性" class="headerlink" title="提高了安全性 可维护性 可扩展性"></a>提高了安全性 可维护性 可扩展性</h6><p>​    例如私有化属性 就是封装的一种体现 </p>
+<h3 id="封装-隐藏具体的实现属性-仅对外提供公共的访问方式"><a href="#封装-隐藏具体的实现属性-仅对外提供公共的访问方式" class="headerlink" title="封装 隐藏具体的实现属性 仅对外提供公共的访问方式"></a><strong>封装 隐藏具体的实现属性 仅对外提供公共的访问方式</strong></h3><h6 id="提高了安全性-可维护性-可扩展性"><a href="#提高了安全性-可维护性-可扩展性" class="headerlink" title="提高了安全性 可维护性 可扩展性"></a>提高了安全性 可维护性 可扩展性</h6><p>​    4种修饰符从大到小 public protected 默认/缺省 private</p>
+<p>​    例如私有化属性 就是封装的一种体现 </p>
 <hr>
 <p>​    构造器 每个类都有一个 用于创建对象和初始化对象信息</p>
 <p>​    this 指当前对象 package 包 import导包</p>
@@ -283,8 +297,10 @@
 <p>​    super 调用父类的结构 要写在第一行 不能和this一起出现</p>
 <hr>
 <h3 id="多态-事物有多种形态-通用性"><a href="#多态-事物有多种形态-通用性" class="headerlink" title="多态 事物有多种形态 通用性"></a><strong>多态 事物有多种形态 通用性</strong></h3><p>​    <strong>使用前提 继承关系 重写方法</strong></p>
-<p>​    常用的就是父类引用指向子类对象 JDBC  </p>
-<p>​    接口和抽象类的使用体现多态</p>
+<p>​    是代码具有通用性     常用的就是父类引用指向子类对象</p>
+<p>​    例如Object 的 equals 方法 形式参数是 Objece obj 我们使用的时候</p>
+<p>​    其实要比较子类的属性</p>
+<pre><code>JDBC 获取连接的方法也是声明的一个父类方法 其他数据库来使用就用哪个数据库的方法 </code></pre><p>​    接口和抽象类的使用体现多态</p>
 <p>​    instanceof关键字判断是否同一类型</p>
 <hr>
 <h3 id="Object类-所有类的父类"><a href="#Object类-所有类的父类" class="headerlink" title="Object类 所有类的父类"></a>Object类 所有类的父类</h3><p>​    equals方法里做比较用的是==号 toString是显示地址值 需要重写</p>

@@ -180,7 +180,7 @@
       
         <h3 id="ONE"><a href="#ONE" class="headerlink" title="ONE"></a>ONE</h3><a id="more"></a>
 
-<h3 id="集合概述"><a href="#集合概述" class="headerlink" title="集合概述"></a>集合概述</h3><p>和数组一样,都是对多个数据进行储存操作的结果,简称Java容器</p>
+<h3 id="集合概述"><a href="#集合概述" class="headerlink" title="集合概述"></a>集合概述</h3><p>和数组一样,都是对多个数据进行储存操作的结构,简称Java容器</p>
 <p>此时的存储 是指内存的储存 不涉及持久化储存(txt,jpg,avi,数据库中)</p>
 <p>主要有两个接口 Collection 和 Map</p>
 <h3 id="Collection"><a href="#Collection" class="headerlink" title="Collection"></a>Collection</h3><p>是单列集合,主要方法 创建集合引用子类对象</p>
@@ -200,7 +200,8 @@
 <p>next方法会移动指针 会返回下移到所在位置的元素</p>
 <p><u><strong>Set和List接口继承了Collection</strong></u></p>
 <p><strong>常用的List的三个实现类 ArrayList,LinkedList,Voctor 都是存储有序可以重复的数据</strong></p>
-<p>List有索引 有自己的方法</p>
+<p><strong>List</strong>有索引 向List里添加对象 要重写该类的equals方法</p>
+<p>有自己的方法</p>
 <p>增add(obj) 删remove(可以元素 也可以集合) 改set 查get()  </p>
 <p>插入add(index,obj) 长度size(是添加元素的个数) </p>
 <p>遍历1foreach 2 iterator 3 普通for循环</p>
@@ -209,21 +210,41 @@
 <p>1.8初始化是{} 在add的时候才初始化长度</p>
 <p>扩容是原数组的1.5倍</p>
 <p>已知长度的时候建议用有参构造方法</p>
+<p>实现原理</p>
+<p>1.7 中 我们在new一个ArrayList的时候,会在底层创建一个长度为10的Object[] 名为elementData</p>
+<p>在我们调用add()是 实际是给element索引赋值</p>
+<p>当添加到第11个元素的时候 ,会扩容 是原数组的1.5 倍 并且把原数组的值赋值到新数组</p>
+<p>1.8中 我们new的时候不创建的数组长度为{} 在我们调用add方法的时候</p>
+<p>​    才会创建长度为10的Object[] 还是elementData 其他添加扩容方式不变</p>
 <h4 id="LinkedList"><a href="#LinkedList" class="headerlink" title="LinkedList"></a>LinkedList</h4><p>底部是双向链表实现,有Node结构 分为三部分 prev 元素 next</p>
 <p>增删快,查找修改慢, 是线程不安全的</p>
 <h4 id="Vector"><a href="#Vector" class="headerlink" title="Vector"></a>Vector</h4><p>早期的集合 比接口List还早 线程安全的 效率低 底层也是Object[]实现的</p>
 <p>扩容是原数组的2倍</p>
 <p><strong>Set 主要实现类 HashSet LinkedHashSet TreeSet</strong></p>
-<p>特点 存储无序 不重复的 </p>
-<p><strong>无序体现的是不是按照数组的索引排列,而是根据hash值</strong></p>
+<p>特点 存储无序 不重复的 可以存储null值</p>
+<p><strong>无序体现不是随机性,而是指不是按照数组的索引排列,而是根据hash值</strong></p>
 <p><strong>不重复是比较hash值还有比较equals</strong></p>
 <p>对于HashSet LinkedHashSet 添加的对象要重写hashcode和equals方法</p>
 <p>TreeSet 比较方法是基于comperable 和 compartor 底层是红黑树实现</p>
 <p>我们如何需要频繁使用遍历 建议使用LinkedHashSet 因为它底层是链表实现</p>
 <p>维护了前一个和后一个</p>
-<p>Set添加元素时 首先比较hashcode在比较equals 添加成功在同一位置</p>
+<p>HashSet实现原理</p>
+<p>我们在new HashSet 的时候 ,底层会创建一个长度为16的数组</p>
+<p>我们在调用add()添加元素时 首先调用添加元素所在类的HashCode方法 </p>
+<p>然后通过计算算出所要放的位置,如果该位置上没有元素 直接添加</p>
+<p>如果有元素或者多个元素 会先比较hashcode 如果有相同的 添加失败</p>
+<p>如果没有相同的再比较equals 如果有相同的 添加失败</p>
+<p>如果没有添加成功在同一位置</p>
 <p>JDK7新添的元素会在数组中 原来的会在链表下</p>
 <p>JDK8新添的元素会在链表下 原来的会在数组中</p>
+<h3 id="MAP"><a href="#MAP" class="headerlink" title="MAP"></a>MAP</h3><p>Map是双列集合 以键值对 key-value的形式存储 可以存储null值</p>
+<p>存储特点 key唯一 要重写equals()和hashcode()方法</p>
+<p>主要实现类 HashMap LinkedHashMap TreeMap Hashtable properties</p>
+<p>方法 获取Key getKey()  获取值 values() 添加/修改 put() 删除remove </p>
+<p>变量 通过 获取Key getKey() 和 获取值 values() 和entrySet</p>
+<h2 id="HashMap实现原理"><a href="#HashMap实现原理" class="headerlink" title="HashMap实现原理"></a>HashMap实现原理</h2><p>在1.7中 我们new HashMap() 会在底层创建一个长度为16的entry数组和加载因子=0.75</p>
+<p>这两个数的作用是 HashMap扩容不是添加到第17个元素才扩容 </p>
+<p>而是当临界值(初始长度*加载因子)</p>
 
       
 
@@ -377,7 +398,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#ONE"><span class="toc-number">1.</span> <span class="toc-text">ONE</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#集合概述"><span class="toc-number">2.</span> <span class="toc-text">集合概述</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Collection"><span class="toc-number">3.</span> <span class="toc-text">Collection</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Iterator"><span class="toc-number">3.1.</span> <span class="toc-text">Iterator</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#ArrayList"><span class="toc-number">3.2.</span> <span class="toc-text">ArrayList</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#LinkedList"><span class="toc-number">3.3.</span> <span class="toc-text">LinkedList</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Vector"><span class="toc-number">3.4.</span> <span class="toc-text">Vector</span></a></li></ol></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#ONE"><span class="toc-number">1.</span> <span class="toc-text">ONE</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#集合概述"><span class="toc-number">2.</span> <span class="toc-text">集合概述</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Collection"><span class="toc-number">3.</span> <span class="toc-text">Collection</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Iterator"><span class="toc-number">3.1.</span> <span class="toc-text">Iterator</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#ArrayList"><span class="toc-number">3.2.</span> <span class="toc-text">ArrayList</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#LinkedList"><span class="toc-number">3.3.</span> <span class="toc-text">LinkedList</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Vector"><span class="toc-number">3.4.</span> <span class="toc-text">Vector</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#MAP"><span class="toc-number">4.</span> <span class="toc-text">MAP</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#HashMap实现原理"><span class="toc-number"></span> <span class="toc-text">HashMap实现原理</span></a>
                     </div>
                 </span>
             </div>
