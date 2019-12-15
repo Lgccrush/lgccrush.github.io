@@ -6,17 +6,18 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>标签 | Fighting</title>
+  <title>关于异常 | Fighting</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="自律">
-<meta property="og:type" content="website">
-<meta property="og:title" content="标签">
-<meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;tags&#x2F;index.html">
+  <meta name="description" content="Exception">
+<meta property="og:type" content="article">
+<meta property="og:title" content="关于异常">
+<meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;12&#x2F;15&#x2F;%E5%85%B3%E4%BA%8E%E5%BC%82%E5%B8%B8&#x2F;index.html">
 <meta property="og:site_name" content="Fighting">
-<meta property="og:description" content="自律">
-<meta property="article:published_time" content="2019-12-10T10:02:27.000Z">
-<meta property="article:modified_time" content="2019-12-10T10:02:27.000Z">
+<meta property="og:description" content="Exception">
+<meta property="article:published_time" content="2019-12-15T14:07:31.000Z">
+<meta property="article:modified_time" content="2019-12-15T14:07:31.000Z">
 <meta property="article:author" content="Crush">
+<meta property="article:tag" content="exception">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternative" href="/atom.xml" title="Fighting" type="application/atom+xml">
@@ -157,27 +158,51 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="page-" class="article article-type-page " itemscope itemprop="blogPost">
+            <article id="post-关于异常" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      标签
+      关于异常
     </h1>
   
 
         
-        <a href="/tags/index.html" class="archive-article-date">
-  	<time datetime="2019-12-10T10:02:27.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-12-10</time>
+        <a href="/2019/12/15/%E5%85%B3%E4%BA%8E%E5%BC%82%E5%B8%B8/" class="archive-article-date">
+  	<time datetime="2019-12-15T14:07:31.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-12-15</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        
+        <h4 id="Exception"><a href="#Exception" class="headerlink" title="Exception"></a>Exception</h4><a id="more"></a>
+
+<h3 id="异常分类"><a href="#异常分类" class="headerlink" title="异常分类"></a>异常分类</h3><p>父类 throwable </p>
+<p> 两个子类 Exception Error</p>
+<p>Error 列入宕机比较大的异常 无法处理 标识有error</p>
+<h3 id="Exception-1"><a href="#Exception-1" class="headerlink" title="Exception"></a>Exception</h3><p>分为运行时异常和编译时异常</p>
+<p>常见异常 </p>
+<p>​    NullPointerException 空指针 对象引用为null调用方法</p>
+<p>​    IndexOutOfBoundsException 索引越界异常 超出索引范围</p>
+<p>​    ClassNotFoundException 找不到类异常 </p>
+<p>​    ClassCastException 类型转换异常</p>
+<p>​    FileNotFoundException 找不到文件异常</p>
+<p>​    IOException IO流异常</p>
+<p>处理异常的两个方式</p>
+<h4 id="try-catch-finally"><a href="#try-catch-finally" class="headerlink" title="try-catch-finally"></a>try-catch-finally</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line"><span class="keyword">try</span>&#123;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line">	<span class="keyword">int</span> a = <span class="number">10</span>;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line">	<span class="keyword">int</span> b = <span class="number">0</span>;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">4</span></pre></td><td class="code"><pre><span class="line">	System.out.println(a/b);</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">5</span></pre></td><td class="code"><pre><span class="line">&#125;<span class="keyword">catch</span>(ArithmeticException e)&#123;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">6</span></pre></td><td class="code"><pre><span class="line">	e.printStackTrace();</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">7</span></pre></td><td class="code"><pre><span class="line">&#125;<span class="keyword">finally</span>&#123;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">8</span></pre></td><td class="code"><pre><span class="line">	System.out.println(<span class="string">"这里一定执行"</span>);</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">9</span></pre></td><td class="code"><pre><span class="line">&#125;</span></pre></td></tr></table></figure>
+
+<p>finally 是可有的 里面代码一定执行 常用于关闭流,链接之类的</p>
+<p>fanal修饰类 类不能被继承 修饰方法 方法不能被重写 修饰变量 为常量</p>
+<p>finanize是Object类的方法 用于垃圾回收处理对象用的</p>
+<h4 id="throws"><a href="#throws" class="headerlink" title="throws"></a>throws</h4><p>声明在方法上 用于声明异常类型 用调用者处理异常</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">test</span><span class="params">()</span> <span class="keyword">throws</span> ArithmeticException</span>&#123;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line">	<span class="keyword">int</span> a = <span class="number">10</span>;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line">	<span class="keyword">int</span> b = <span class="number">0</span>;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">4</span></pre></td><td class="code"><pre><span class="line">	System.out.println(a/b);</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">5</span></pre></td><td class="code"><pre><span class="line">&#125;</span></pre></td></tr></table></figure>
+
+<h4 id="throw"><a href="#throw" class="headerlink" title="throw"></a>throw</h4><p>用于生成一个异常对象 在方法体内</p>
+<p>如果有多个方法递进调用 在前面的方法用throws 最后方法使用try-catch处理</p>
+
       
 
       
@@ -206,7 +231,29 @@
     <div class="article-info article-info-index">
       
       
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">exception</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
       
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/基础//" class="article-tag-list-link color3">基础</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
 
       
 
@@ -256,7 +303,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/tags/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2019/12/15/%E5%85%B3%E4%BA%8E%E5%BC%82%E5%B8%B8/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -268,6 +315,16 @@
 </article>
 
   
+<nav id="article-nav">
+  
+  
+    <a href="/2019/12/15/%E9%9B%86%E5%90%88%E7%9B%B8%E5%85%B3/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">集合相关</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
 
 <aside class="wrap-side-operation">
     <div class="mod-side-operation">
@@ -289,7 +346,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    目录，不存在的…
+                    <ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#Exception"><span class="toc-number">1.</span> <span class="toc-text">Exception</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#异常分类"><span class="toc-number"></span> <span class="toc-text">异常分类</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Exception-1"><span class="toc-number"></span> <span class="toc-text">Exception</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#try-catch-finally"><span class="toc-number">1.</span> <span class="toc-text">try-catch-finally</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#throws"><span class="toc-number">2.</span> <span class="toc-text">throws</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#throw"><span class="toc-number">3.</span> <span class="toc-text">throw</span></a></li></ol>
                     </div>
                 </span>
             </div>
@@ -331,7 +388,7 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
 		isTag: false,
 		isCategory: false,
