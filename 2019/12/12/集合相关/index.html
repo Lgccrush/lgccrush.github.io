@@ -211,8 +211,8 @@
 <p>扩容是原数组的1.5倍</p>
 <p>已知长度的时候建议用有参构造方法</p>
 <p>实现原理</p>
-<p>1.7 中 我们在new一个ArrayList的时候,会在底层创建一个长度为10的Object[] 名为elementData</p>
-<p>在我们调用add()是 实际是给element索引赋值</p>
+<p>1.7 中 我们在new一个ArrayList的时候,会在底层创建一个长度为10的Object[]  elementData</p>
+<p>在我们调用add()是 实际是给elementData索引赋值</p>
 <p>当添加到第11个元素的时候 ,会扩容 是原数组的1.5 倍 并且把原数组的值赋值到新数组</p>
 <p>1.8中 我们new的时候不创建的数组长度为{} 在我们调用add方法的时候</p>
 <p>​    才会创建长度为10的Object[] 还是elementData 其他添加扩容方式不变</p>
@@ -242,9 +242,28 @@
 <p>主要实现类 HashMap LinkedHashMap TreeMap Hashtable properties</p>
 <p>方法 获取Key getKey()  获取值 values() 添加/修改 put() 删除remove </p>
 <p>变量 通过 获取Key getKey() 和 获取值 values() 和entrySet</p>
-<h2 id="HashMap实现原理"><a href="#HashMap实现原理" class="headerlink" title="HashMap实现原理"></a>HashMap实现原理</h2><p>在1.7中 我们new HashMap() 会在底层创建一个长度为16的entry数组和加载因子=0.75</p>
-<p>这两个数的作用是 HashMap扩容不是添加到第17个元素才扩容 </p>
-<p>而是当临界值(初始长度*加载因子)</p>
+<h2 id="HashMap实现原理"><a href="#HashMap实现原理" class="headerlink" title="HashMap实现原理"></a>HashMap实现原理</h2><h3 id="在1-7中"><a href="#在1-7中" class="headerlink" title="在1.7中"></a>在1.7中</h3><p>我们new HashMap() 会在底层创建一个长度为16的entry[] table和加载因子=0.75</p>
+<p>我们在调用put() 添加一对key-value时 会首先调用key所在类的hashcode()计算hash值</p>
+<p>然后再经过计算得到该元素在entry[]中的位置 如果该位置上没有元素 则添加成功</p>
+<p>若该位置有元素(或多个以链表形式存在的) 就会比较hash值 </p>
+<p>​        若与所有的hash值不相等 则添加成功</p>
+<p>​        若有相同hash值 会去调用key所在类的equals方法比较</p>
+<p>​            若返回false 则添加成功</p>
+<p>​            若返回true 会将原来的value替代(这相当于修改操作)</p>
+<p>在有元素能添加成功的情况下 1.7中都是把新的元素放在数组中去指向旧的元素</p>
+<p>当我们在不断添加的过程中 会涉及到扩容 HashMap扩容不是添加到第17个元素才扩容 </p>
+<p>而是当在添加元素的过程中大于临界值(初始长度*加载因子)且所存放的位置不为空 就扩容</p>
+<p>扩容是扩大2倍 并把原来的元素赋值过来</p>
+<h3 id="而在1-8中"><a href="#而在1-8中" class="headerlink" title="而在1.8中"></a>而在1.8中</h3><p>所体现出来的不同是 首先我们在new HashMap()时 底层值初始化负载因子–0.75</p>
+<p>当我们首次去调用put()的时候 才会创建长度为16的数组 是Node[] table</p>
+<p>还有最主要的改动是 当一个索引上的元素以链表形式存在的个数大于8并且这个时候数组长度大于64 </p>
+<p>该索引上的元素改为红黑树存储</p>
+<p> 所以1.7底层结构是 数组+链表</p>
+<p>​        1.8底层结构是 数组+链表+红黑树</p>
+<h3 id="关于HashMap容量是2的N次幂和扩容也是2的N次幂"><a href="#关于HashMap容量是2的N次幂和扩容也是2的N次幂" class="headerlink" title="关于HashMap容量是2的N次幂和扩容也是2的N次幂"></a>关于HashMap容量是2的N次幂和扩容也是2的N次幂</h3><p>因为初始容量initial capacity是2的N次幂(16) put()会调用putVal() </p>
+<p>里面用的是(n-1) &amp; hash(所在类hashcode方法算出的值)</p>
+<p>扩容热size也有用到(n-1) &amp; hash </p>
+<p>避免hash碰撞 可以是元素均匀的分布到数组上 避免形成链表 是查询效率降低</p>
 
       
 
@@ -398,7 +417,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#ONE"><span class="toc-number">1.</span> <span class="toc-text">ONE</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#集合概述"><span class="toc-number">2.</span> <span class="toc-text">集合概述</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Collection"><span class="toc-number">3.</span> <span class="toc-text">Collection</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Iterator"><span class="toc-number">3.1.</span> <span class="toc-text">Iterator</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#ArrayList"><span class="toc-number">3.2.</span> <span class="toc-text">ArrayList</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#LinkedList"><span class="toc-number">3.3.</span> <span class="toc-text">LinkedList</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Vector"><span class="toc-number">3.4.</span> <span class="toc-text">Vector</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#MAP"><span class="toc-number">4.</span> <span class="toc-text">MAP</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#HashMap实现原理"><span class="toc-number"></span> <span class="toc-text">HashMap实现原理</span></a>
+                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#ONE"><span class="toc-number">1.</span> <span class="toc-text">ONE</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#集合概述"><span class="toc-number">2.</span> <span class="toc-text">集合概述</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Collection"><span class="toc-number">3.</span> <span class="toc-text">Collection</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Iterator"><span class="toc-number">3.1.</span> <span class="toc-text">Iterator</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#ArrayList"><span class="toc-number">3.2.</span> <span class="toc-text">ArrayList</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#LinkedList"><span class="toc-number">3.3.</span> <span class="toc-text">LinkedList</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Vector"><span class="toc-number">3.4.</span> <span class="toc-text">Vector</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#MAP"><span class="toc-number">4.</span> <span class="toc-text">MAP</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#HashMap实现原理"><span class="toc-number"></span> <span class="toc-text">HashMap实现原理</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#在1-7中"><span class="toc-number">1.</span> <span class="toc-text">在1.7中</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#而在1-8中"><span class="toc-number">2.</span> <span class="toc-text">而在1.8中</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#关于HashMap容量是2的N次幂和扩容也是2的N次幂"><span class="toc-number">3.</span> <span class="toc-text">关于HashMap容量是2的N次幂和扩容也是2的N次幂</span></a></li></ol>
                     </div>
                 </span>
             </div>
