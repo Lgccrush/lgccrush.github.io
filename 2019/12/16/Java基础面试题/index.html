@@ -190,14 +190,19 @@
 <p>比较基本数据类型是比较数据值是否相等</p>
 <p>比较引用数据类型是比较地址值是否相等</p>
 <p>equals只能用于比较引用数据类型 默认情况下是比较地址值是否相等</p>
+<p>在Object类中定义的equals()底层是用的return(this==obj)来实现的</p>
 <p>我们通常会重写Object类里的equals()来比较两个对象的实体内容</p>
-<p>因为在Object类中定义的equals()底层是用的return(this==obj)来实现的</p>
 <h4 id="final-finally-finalize"><a href="#final-finally-finalize" class="headerlink" title="final finally finalize"></a>final finally finalize</h4><p>final是关键字</p>
 <p>​    修饰的类不能被继承 例如String</p>
 <p>​    修饰的方法不能被重写</p>
 <p>​    修饰的变量是常量,要先赋值,并且不能改变值</p>
 <p>finally也是关键字 </p>
 <p>​    用于异常处理机制当中 和try-catch搭配使用 一般用于关闭连接或者流等操作</p>
+<p>​    finally里代码不一定都会执行</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line"><span class="keyword">try</span> &#123;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line">		<span class="keyword">int</span> a = <span class="number">2</span>;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line">		<span class="keyword">int</span> b = <span class="number">0</span>;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">4</span></pre></td><td class="code"><pre><span class="line">		System.out.println(<span class="string">"bbb"</span>);</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">5</span></pre></td><td class="code"><pre><span class="line">		System.exit(<span class="number">0</span>);</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">6</span></pre></td><td class="code"><pre><span class="line">	&#125; <span class="keyword">catch</span> (Exception e) &#123;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">7</span></pre></td><td class="code"><pre><span class="line">		e.printStackTrace();</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">8</span></pre></td><td class="code"><pre><span class="line">	&#125;<span class="keyword">finally</span>&#123;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">9</span></pre></td><td class="code"><pre><span class="line">		System.out.println(<span class="string">"aaa"</span>);</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">10</span></pre></td><td class="code"><pre><span class="line">	&#125;</span></pre></td></tr></table></figure>
+
+
+
 <p>finalize是Object中定义的方法</p>
 <p>​    一般情况下用JVM所调用 用于回收机制处理对象时调用 </p>
 <h4 id="hashcode-equals"><a href="#hashcode-equals" class="headerlink" title="hashcode() equals()"></a>hashcode() equals()</h4><p>hashcode()计算对象的哈希吗值 equals()比较两个对象是否相等</p>
