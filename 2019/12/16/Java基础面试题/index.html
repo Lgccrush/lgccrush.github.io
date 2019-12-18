@@ -6,11 +6,11 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Java基础面试题 | Fighting</title>
+  <title>Java基础综合(1) | Fighting</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="day01">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Java基础面试题">
+<meta property="og:title" content="Java基础综合(1)">
 <meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;12&#x2F;16&#x2F;Java%E5%9F%BA%E7%A1%80%E9%9D%A2%E8%AF%95%E9%A2%98&#x2F;index.html">
 <meta property="og:site_name" content="Fighting">
 <meta property="og:description" content="day01">
@@ -165,7 +165,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      Java基础面试题
+      Java基础综合(1)
     </h1>
   
 
@@ -209,11 +209,13 @@
 <p>都可以自定义重写 所以不会一定一个相等另外一个就必须相等</p>
 <p>只是通常情况我们会保持一致</p>
 <h4 id="Math"><a href="#Math" class="headerlink" title="Math"></a>Math</h4><p>round方法四舍五入 ceil取较大值  tail取较小值</p>
-<h4 id="基本数据类型"><a href="#基本数据类型" class="headerlink" title="基本数据类型"></a>基本数据类型</h4><p>byte int short long boolean char float double</p>
+<h4 id="基本数据类型-包装类"><a href="#基本数据类型-包装类" class="headerlink" title="基本数据类型 包装类"></a>基本数据类型 包装类</h4><p>byte int short long boolean char float double</p>
+<p>为了让基本数据类型用类的特征使用了包装类 其中除了integer和character其他首字母大写</p>
+<p>除了Boolean和Character其他的父类是Number 从初始值比较 从堆栈比较</p>
 <h4 id="操作字符串的类"><a href="#操作字符串的类" class="headerlink" title="操作字符串的类"></a>操作字符串的类</h4><p>String 不是基本数据类型 是常用的引用数据类型</p>
 <p>​            生成得对象不可变 底层是char[ ] value 用final修饰 对修改操作都会生成新的对象</p>
-<p>StringBuilder</p>
-<p>StringBuffer 线程不安全的 效率高 建议多线程使用</p>
+<p>StringBuilder 线程不安全的 效率高 建议单线程使用</p>
+<p>StringBuffer 线程安全的 效率低 建议多线程使用</p>
 <h4 id="类-抽象类-接口"><a href="#类-抽象类-接口" class="headerlink" title="类 抽象类 接口"></a>类 抽象类 接口</h4><p>类和抽象类</p>
 <p>​     抽象类不能实例化有抽象方法的类使抽象类</p>
 <p>​    类没有抽象方法 抽象类里也可以没有抽象方法 </p>
@@ -290,7 +292,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="/categories/面试//" class="article-tag-list-link color3">面试</a>
+        			<a href="/categories/基础//" class="article-tag-list-link color3">基础</a>
         		</li>
       		
 		</ul>
@@ -397,7 +399,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#day01"><span class="toc-number">1.</span> <span class="toc-text">day01</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#JDK-JRE-JVM"><span class="toc-number">2.</span> <span class="toc-text">JDK JRE JVM</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#和equals"><span class="toc-number">3.</span> <span class="toc-text">&#x3D;&#x3D;和equals</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#final-finally-finalize"><span class="toc-number">4.</span> <span class="toc-text">final finally finalize</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#hashcode-equals"><span class="toc-number">5.</span> <span class="toc-text">hashcode() equals()</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Math"><span class="toc-number">6.</span> <span class="toc-text">Math</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#基本数据类型"><span class="toc-number">7.</span> <span class="toc-text">基本数据类型</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#操作字符串的类"><span class="toc-number">8.</span> <span class="toc-text">操作字符串的类</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#类-抽象类-接口"><span class="toc-number">9.</span> <span class="toc-text">类 抽象类 接口</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#权限修饰符"><span class="toc-number">10.</span> <span class="toc-text">权限修饰符</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#String类常用方法"><span class="toc-number">11.</span> <span class="toc-text">String类常用方法</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#day01"><span class="toc-number">1.</span> <span class="toc-text">day01</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#JDK-JRE-JVM"><span class="toc-number">2.</span> <span class="toc-text">JDK JRE JVM</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#和equals"><span class="toc-number">3.</span> <span class="toc-text">&#x3D;&#x3D;和equals</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#final-finally-finalize"><span class="toc-number">4.</span> <span class="toc-text">final finally finalize</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#hashcode-equals"><span class="toc-number">5.</span> <span class="toc-text">hashcode() equals()</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Math"><span class="toc-number">6.</span> <span class="toc-text">Math</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#基本数据类型-包装类"><span class="toc-number">7.</span> <span class="toc-text">基本数据类型 包装类</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#操作字符串的类"><span class="toc-number">8.</span> <span class="toc-text">操作字符串的类</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#类-抽象类-接口"><span class="toc-number">9.</span> <span class="toc-text">类 抽象类 接口</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#权限修饰符"><span class="toc-number">10.</span> <span class="toc-text">权限修饰符</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#String类常用方法"><span class="toc-number">11.</span> <span class="toc-text">String类常用方法</span></a></li></ol>
                     </div>
                 </span>
             </div>

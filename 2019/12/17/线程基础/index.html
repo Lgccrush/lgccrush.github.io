@@ -180,17 +180,20 @@
       
         <h4 id="Thread"><a href="#Thread" class="headerlink" title="Thread"></a>Thread</h4><a id="more"></a>
 
-<h4 id="程序-进程-线程"><a href="#程序-进程-线程" class="headerlink" title="程序 进程 线程"></a>程序 进程 线程</h4><p>程序 : 为完成特点任务,使用某种语言编写的指令集合</p>
+<h4 id="程序-进程-线程-守护线程"><a href="#程序-进程-线程-守护线程" class="headerlink" title="程序 进程 线程 守护线程"></a>程序 进程 线程 守护线程</h4><p>程序 : 为完成特点定任务,使用某种语言编写的一些指令的集合</p>
 <p>进程 : 正在运行的一个程序</p>
 <p>线程 : 进程细化为线程 线程是执行进程的路径</p>
+<p>守护线程 程序在运行时 后台提供的一种通用的服务线程 比如垃圾回收机制是一种特殊的守护线程</p>
+<p>我们可以在start()前调用setDaemon()使线程成为守护线程</p>
 <h4 id="并行-并发"><a href="#并行-并发" class="headerlink" title="并行 并发"></a>并行 并发</h4><p>并行 : 多个CPU执行多个任务</p>
 <p>并发 : 一个CPU(分时间片)执行多个任务 在一段时间间隔执行</p>
-<h4 id="创建线程的方式-4种"><a href="#创建线程的方式-4种" class="headerlink" title="创建线程的方式 4种"></a>创建线程的方式 4种</h4><p>1 继承Thread 重写run() 2实现Runnable接口 重写run()——&gt; </p>
-<p>1和2都有重写run() 启动线程都是调用start()</p>
+<h4 id="创建线程的方式-4种"><a href="#创建线程的方式-4种" class="headerlink" title="创建线程的方式 4种"></a>创建线程的方式 4种</h4><p>1 继承Thread 重写run() 2实现Runnable接口 重写run()</p>
+<p>1和2都有重写run() 启动线程都是调用start() Thread是Runnable的子类</p>
 <p>考虑使用实现的方法 继承的局限性 实现的方法对共享的数据处理更灵活</p>
-<p>3 实现Callable接口 重写call() 使用futureTask来创建线程 获取返回值</p>
+<p>3 实现Callable接口 重写call() 使用FutureTask来创建线程 也能获取返回值</p>
 <p>4使用线程池 Executors的静态方法 使用execute方法或者submit方法</p>
 <p>线程池避免了繁琐的创建和销毁线程 有效的利用了资源 还可以通话ThreadPoolExecutor设置一些属性 </p>
+<h4 id="start-和run"><a href="#start-和run" class="headerlink" title="start()和run()"></a>start()和run()</h4><p>启动线程调用start()只能调用一次 线程要执行的代码写在run()里 可以多次调用</p>
 <h4 id="Runnable-和-Callable"><a href="#Runnable-和-Callable" class="headerlink" title="Runnable 和 Callable"></a>Runnable 和 Callable</h4><p>Callable有返回值 可以用FutureTask来获取 可以抛异常 支持泛型</p>
 <h4 id="线程的方法"><a href="#线程的方法" class="headerlink" title="线程的方法"></a>线程的方法</h4><p>currentName() 当前线程的名字        get/setName() 获取/设置线程名</p>
 <p>join() 加入另外的线程        yield()交出CPU执行权        sleep(long time) 使线程睡眠</p>
@@ -207,12 +210,16 @@
 <p>阻塞    等待join线程结束/notify()或者notifyAll()/resume()/等待sleep时间结束/获取同步锁    到就绪</p>
 <h4 id="同步和异步"><a href="#同步和异步" class="headerlink" title="同步和异步"></a>同步和异步</h4><p>同步 : 同时发送请求 要等上一个请求结束 下一个请求才可以发送</p>
 <p>异步 : 同时发送请求 不用等上一个请求结束 可继续发送请求</p>
+<ul>
+<li>同步：发送一个请求，等待返回，然后再发送下一个请求 </li>
+<li>异步：发送一个请求,不等待返回,随时可以再发送下一个请求</li>
+</ul>
 <h4 id="同步涉及的安全问题"><a href="#同步涉及的安全问题" class="headerlink" title="同步涉及的安全问题"></a>同步涉及的安全问题</h4><p>多线程同时操作数据 不安全 Java使用同步机制解决</p>
 <p>1同步代码块</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line"><span class="keyword">synchronized</span>(同步监视器)&#123;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line">	<span class="comment">//多个线程要共同操作的数据 </span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line">&#125;</span></pre></td></tr></table></figure>
 
 <p>​    共享数据就是多个线程要共同操作的数据  注意不能多 不能少</p>
-<p>​    同步监视器(锁) 任何对象都可以充当 多个线程只要一个锁</p>
+<p>​    同步监视器(锁) 任何对象都可以充当 多个线程必须共用一把锁</p>
 <p>​    实现Runnable的默认同步监视器的this</p>
 <p>​    继承Thread的要慎用this 建议使用当前类</p>
 <p>2同步方法 当一个方法里都是共享数据 我们加上synchronized修饰</p>
@@ -338,6 +345,15 @@
   
 <nav id="article-nav">
   
+    <a href="/2019/12/18/Words-of-the-day9/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          Words of the day9
+        
+      </div>
+    </a>
+  
   
     <a href="/2019/12/17/Words-of-the-day8/" id="article-nav-older" class="article-nav-link-wrap">
       <div class="article-nav-title">Words of the day8</div>
@@ -367,7 +383,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#Thread"><span class="toc-number">1.</span> <span class="toc-text">Thread</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#程序-进程-线程"><span class="toc-number">2.</span> <span class="toc-text">程序 进程 线程</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#并行-并发"><span class="toc-number">3.</span> <span class="toc-text">并行 并发</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#创建线程的方式-4种"><span class="toc-number">4.</span> <span class="toc-text">创建线程的方式 4种</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Runnable-和-Callable"><span class="toc-number">5.</span> <span class="toc-text">Runnable 和 Callable</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#线程的方法"><span class="toc-number">6.</span> <span class="toc-text">线程的方法</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#线程的生命周期"><span class="toc-number">7.</span> <span class="toc-text">线程的生命周期</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#同步和异步"><span class="toc-number">8.</span> <span class="toc-text">同步和异步</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#同步涉及的安全问题"><span class="toc-number">9.</span> <span class="toc-text">同步涉及的安全问题</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#notify-和notifyAll"><span class="toc-number">10.</span> <span class="toc-text">notify()和notifyAll()</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#sleep-和wait"><span class="toc-number">11.</span> <span class="toc-text">sleep()和wait()</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#Thread"><span class="toc-number">1.</span> <span class="toc-text">Thread</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#程序-进程-线程-守护线程"><span class="toc-number">2.</span> <span class="toc-text">程序 进程 线程 守护线程</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#并行-并发"><span class="toc-number">3.</span> <span class="toc-text">并行 并发</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#创建线程的方式-4种"><span class="toc-number">4.</span> <span class="toc-text">创建线程的方式 4种</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#start-和run"><span class="toc-number">5.</span> <span class="toc-text">start()和run()</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Runnable-和-Callable"><span class="toc-number">6.</span> <span class="toc-text">Runnable 和 Callable</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#线程的方法"><span class="toc-number">7.</span> <span class="toc-text">线程的方法</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#线程的生命周期"><span class="toc-number">8.</span> <span class="toc-text">线程的生命周期</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#同步和异步"><span class="toc-number">9.</span> <span class="toc-text">同步和异步</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#同步涉及的安全问题"><span class="toc-number">10.</span> <span class="toc-text">同步涉及的安全问题</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#notify-和notifyAll"><span class="toc-number">11.</span> <span class="toc-text">notify()和notifyAll()</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#sleep-和wait"><span class="toc-number">12.</span> <span class="toc-text">sleep()和wait()</span></a></li></ol>
                     </div>
                 </span>
             </div>
