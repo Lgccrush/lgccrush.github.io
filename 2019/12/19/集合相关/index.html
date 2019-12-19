@@ -6,15 +6,18 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Category: 基础 | Fighting</title>
+  <title>集合相关 | Fighting</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="自律">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Fighting">
-<meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;categories&#x2F;%E5%9F%BA%E7%A1%80&#x2F;index.html">
+  <meta name="description" content="Collection">
+<meta property="og:type" content="article">
+<meta property="og:title" content="集合相关">
+<meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;12&#x2F;19&#x2F;%E9%9B%86%E5%90%88%E7%9B%B8%E5%85%B3&#x2F;index.html">
 <meta property="og:site_name" content="Fighting">
-<meta property="og:description" content="自律">
+<meta property="og:description" content="Collection">
+<meta property="article:published_time" content="2019-12-19T08:39:19.000Z">
+<meta property="article:modified_time" content="2019-12-19T08:39:19.000Z">
 <meta property="article:author" content="Crush">
+<meta property="article:tag" content="Collection">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternative" href="/atom.xml" title="Fighting" type="application/atom+xml">
@@ -155,36 +158,189 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-集合相关" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2019" class="archive-year">2019</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/12/19/%E9%9B%86%E5%90%88%E7%9B%B8%E5%85%B3/" class="archive-article-date">
-  	<time datetime="2019-12-19T08:39:19.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-12-19</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/12/19/%E9%9B%86%E5%90%88%E7%9B%B8%E5%85%B3/">集合相关</a>
+    <h1 class="article-title" itemprop="name">
+      集合相关
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
+        
+        <a href="/2019/12/19/%E9%9B%86%E5%90%88%E7%9B%B8%E5%85%B3/" class="archive-article-date">
+  	<time datetime="2019-12-19T08:39:19.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-12-19</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="Collection"><a href="#Collection" class="headerlink" title="Collection"></a>Collection</h3><a id="more"></a>
+
+<h3 id="集合概述"><a href="#集合概述" class="headerlink" title="集合概述"></a>集合概述</h3><p>和数组一样,都是对多个数据进行储存操作的结构,简称Java容器</p>
+<p>此时的存储 是指内存的储存 不涉及持久化储存(txt,jpg,avi,数据库中)</p>
+<p>主要有两个接口 Collection 和 Map</p>
+<h3 id="Collection-1"><a href="#Collection-1" class="headerlink" title="Collection"></a>Collection</h3><p>是单列集合,主要方法 创建集合引用子类对象</p>
+<p>添加的对象,对象要重写equals方法 因为判断是否包含要作比较</p>
+<p>添加元素add(obj),/ addAll(Collection c)添加集合</p>
+<p>删除元素remove(obj),删除所有void clear();判断是否为空isEmpty();</p>
+<p>判断是否包含元素contains(obj);判断是否包含集合containsAll(Collection c);</p>
+<p>获取hashcode值 判断元素是否与集合相等equals(obj)</p>
+<p>转换为数组toArray() 获取迭代器Iterator iterator();</p>
+<p>数组转为集合 Array.asList</p>
+<h4 id="Iterator"><a href="#Iterator" class="headerlink" title="Iterator"></a>Iterator</h4><p>遍历集合使用iterator 是一种迭代模式</p>
+<p>首先获得迭代器</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line"> Iterator i = Collection.iterator();</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span>(i.hasNext)&#123;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line">​	System.out.println(i.next());</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">4</span></pre></td><td class="code"><pre><span class="line">&#125;</span></pre></td></tr></table></figure>
+
+<p>遍历时有指针默认在集合第一个元素前</p>
+<p>其中主要方法 hasNext(),判断下一个是否有元素</p>
+<p>next方法会移动指针 会返回下移到所在位置的元素</p>
+<p><u><strong>Set和List接口继承了Collection</strong></u></p>
+<p><strong>常用的List的三个实现类 ArrayList,LinkedList,Voctor 都是存储有序可以重复的数据</strong></p>
+<p><strong>List</strong>有索引 向List里添加对象 要重写该类的equals方法</p>
+<p>有自己的方法</p>
+<p>增add(obj) 删remove(可以元素 也可以集合) 改set 查get()  </p>
+<p>插入add(index,obj) 长度size(是添加元素的个数) </p>
+<p>遍历1foreach 2 iterator 3 普通for循环</p>
+<h4 id="ArrayList"><a href="#ArrayList" class="headerlink" title="ArrayList"></a>ArrayList</h4><p>底层是Object[]实现 , 有索引,插入和删除慢,查找,更改快,线程不安全的效率高 </p>
+<p>1.7初始化就是长度为10 </p>
+<p>1.8初始化是{} 在add的时候才初始化长度</p>
+<p>扩容是原数组的1.5倍</p>
+<p>已知长度的时候建议用有参构造方法</p>
+<h3 id="ArrayList-的实现原理"><a href="#ArrayList-的实现原理" class="headerlink" title="ArrayList 的实现原理"></a>ArrayList 的实现原理</h3><ul>
+<li>1.7中 当我们new ArrayList 的时候 底部会初始化一个长度为10的Object[] elementData</li>
+<li>我们调用add()就是给elementData[]赋值</li>
+<li>当添加的元素个数大于数组长度 会扩容数组到原来长度的1.5倍 并复制原来的数据到新的数组中</li>
+<li>1.8中 当我们new ArrayList()初始化的数组长度为0当我们首次调用add()是才会创建长度为10的Object[] elementData</li>
+</ul>
+<h3 id="LinkedList实现原理"><a href="#LinkedList实现原理" class="headerlink" title="LinkedList实现原理"></a>LinkedList实现原理</h3><ul>
+<li>底层是双向链表的结构 维护了fist和last都得Node类型 Node里面包括item,prev和next </li>
+<li>我们添加元素默认是从最后</li>
+</ul>
+<ul>
+<li>增删快,查找修改慢, 是线程不安全的</li>
+</ul>
+<h4 id="Vector"><a href="#Vector" class="headerlink" title="Vector"></a>Vector</h4><p>早期的集合 比接口List还早 线程安全的 效率低 底层也是Object[]实现的</p>
+<p>扩容是原数组的2倍</p>
+<p><strong>Set 主要实现类 HashSet LinkedHashSet TreeSet</strong></p>
+<p>特点 存储无序 不重复的 可以存储null值</p>
+<p><strong>无序体现不是随机性,而是指不是按照数组的索引排列,而是根据hash值</strong></p>
+<p><strong>不重复是比较hash值还有比较equals</strong></p>
+<p>对于HashSet LinkedHashSet 添加的对象要重写hashcode和equals方法</p>
+<p>TreeSet 比较方法是基于comperable 和 compartor 底层是红黑树实现</p>
+<p>我们如何需要频繁使用遍历 建议使用LinkedHashSet 因为它底层是链表实现</p>
+<p>维护了前一个和后一个</p>
+<p>HashSet实现原理</p>
+<p>我们在new HashSet 的时候 ,底层会创建一个长度为16的数组</p>
+<p>我们在调用add()添加元素时 首先调用添加元素所在类的HashCode方法 </p>
+<p>然后通过计算算出所要放的位置,如果该位置上没有元素 直接添加</p>
+<p>如果有元素或者多个元素 会先比较hashcode 如果有相同的 添加失败</p>
+<p>如果没有相同的再比较equals 如果有相同的 添加失败</p>
+<p>如果没有添加成功在同一位置</p>
+<p>JDK7新添的元素会在数组中 原来的会在链表下</p>
+<p>JDK8新添的元素会在链表下 原来的会在数组中</p>
+<h3 id="Map"><a href="#Map" class="headerlink" title="Map"></a>Map</h3><ul>
+<li><p>Map 是双列集合 储存特点的key-value</p>
+</li>
+<li><p>key是唯一无序的 相当于set key所在类要重写equals()和hashcode()</p>
+</li>
+<li><p>value可重复无序 相当于collection </p>
+</li>
+<li><p>key-value构成一个entry[]</p>
+</li>
+<li><p>entry[]相当于set</p>
+</li>
+<li><p>主要实现类</p>
+</li>
+<li><p>HashMap:线程不安全的效率高 可以存放null值</p>
+</li>
+<li><p>LinkedHashMap:继承了HashMap在原有的基础上维护了两个指针 从而遍历比HashMap效率高 也是线程不安全</p>
+</li>
+<li><p>TreeMap:添加的对象是同一类的 用compare和comperble做比较</p>
+</li>
+<li><p>Hashtable:早期的实现类 线程安全的 效率低 不能存放null值</p>
+</li>
+<li><p>properties:存储的类型都是String 常用于配置文件</p>
+</li>
+<li></li>
+<li><p>HashMap实现原理</p>
+<h3 id="HashMap在1-7中"><a href="#HashMap在1-7中" class="headerlink" title="HashMap在1.7中"></a>HashMap在1.7中</h3></li>
+<li><p>我们在new HashMap()时 会初始化初始容量为16和负载因子=0.75</p>
+</li>
+<li><p>之后会去经过一系列判断列如初始容量位移为16 和得到Threshould临界值  生成长度为16的entry[] table</p>
+</li>
+<li><p>在调用put()时 会判断是否为null  在hashtable中没有</p>
+</li>
+<li><p>然后会先调用key所在类的hashcode()得到hash值 然后再计算得到再entry[]中的位置</p>
+</li>
+<li><p>如果该位置上没有元素 则添加成功</p>
+</li>
+<li><p>如果该位置上有元素或多个(多个是以链表存在的) 会比较hash值 </p>
+</li>
+<li><p>如果hash值没有一样的 则添加成功</p>
+</li>
+<li><p>如果hash值一样 会调用key所在类的equals()</p>
+</li>
+<li><p>如果返回结果为false 则添加成功</p>
+</li>
+<li><p>如果返回结果为true 会用新的key所对应的value覆盖原有的value(可以看做的修改操作)</p>
+</li>
+<li><p>对应在有元素的情况下添加成功 使用链表的形式存储 1.7中会将新的元素放在数组中 指向原来的元素</p>
+</li>
+<li><p>1.8是用原来的元素指向新的元素</p>
+</li>
+<li><p>在不断的添加过程中 涉及到扩容 扩容条件不是大于数组长度才扩容 因为在放元素的时候 很可能出现有的位置为空 其他的是链表 效率低</p>
+</li>
+<li><p>当添加的元素&gt;扩容临界值(就是数组容量*负载因子)是并且所要放的位置不为空是 会选择扩容 </p>
+</li>
+<li><p>扩容是扩容原来的2倍 会把原来的数据复制到新的数组 还会重写计算元素位置 有效的避免链表过长</p>
+</li>
+<li><p>所以1.7底层结构是 数组+链表</p>
+<h3 id="HashMap在1-8中"><a href="#HashMap在1-8中" class="headerlink" title="HashMap在1.8中"></a>HashMap在1.8中</h3><p>我们new HashMap()是初始化了负载因子 我们在调用put()时才会创建长度为16的数组</p>
+</li>
+<li><p>而且是Node[] table不是Entry[] table</p>
+</li>
+<li><p>还有一个更改是 当某个索引上的元素以链表形式存在个数&gt;8并且当前数组的长度&gt;64 该位置的元素会以红黑树的形式存储</p>
+</li>
+<li><p>1.8底层结构是 数组+链表+红黑树</p>
+</li>
+</ul>
+<h3 id="关于HashMap容量是2的N次幂和扩容也是2的N次幂"><a href="#关于HashMap容量是2的N次幂和扩容也是2的N次幂" class="headerlink" title="关于HashMap容量是2的N次幂和扩容也是2的N次幂"></a>关于HashMap容量是2的N次幂和扩容也是2的N次幂</h3><p>因为初始容量initial capacity是2的N次幂(16) put()会调用putVal() </p>
+<p>里面用的是(n-1) &amp; hash(所在类hashcode方法算出的值)</p>
+<p>扩容热size也有用到(n-1) &amp; hash </p>
+<p>避免hash碰撞 可以是元素均匀的分布到数组上 避免形成链表 是查询效率降低</p>
+
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
@@ -196,7 +352,7 @@
 		</ul>
 	</div>
 
-          
+      
 	<div class="article-category tagcloud">
 		<i class="icon-book icon"></i>
 		<ul class="article-tag-list">
@@ -209,461 +365,116 @@
 	</div>
 
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2019/12/19/%E9%9B%86%E5%90%88%E7%9B%B8%E5%85%B3/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/12/19/Words-of-the-day10/" class="archive-article-date">
-  	<time datetime="2019-12-19T04:20:40.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-12-19</time>
-</a>
+<nav id="article-nav">
+  
+  
+    <a href="/2019/12/19/Words-of-the-day10/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Words of the day10</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/12/19/Words-of-the-day10/">Words of the day10</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">word</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/基础//" class="article-tag-list-link color3">基础</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
+        
+        
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#Collection"><span class="toc-number">1.</span> <span class="toc-text">Collection</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#集合概述"><span class="toc-number">2.</span> <span class="toc-text">集合概述</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Collection-1"><span class="toc-number">3.</span> <span class="toc-text">Collection</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Iterator"><span class="toc-number">3.1.</span> <span class="toc-text">Iterator</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#ArrayList"><span class="toc-number">3.2.</span> <span class="toc-text">ArrayList</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#ArrayList-的实现原理"><span class="toc-number">4.</span> <span class="toc-text">ArrayList 的实现原理</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#LinkedList实现原理"><span class="toc-number">5.</span> <span class="toc-text">LinkedList实现原理</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Vector"><span class="toc-number">5.1.</span> <span class="toc-text">Vector</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Map"><span class="toc-number">6.</span> <span class="toc-text">Map</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#HashMap在1-7中"><span class="toc-number">7.</span> <span class="toc-text">HashMap在1.7中</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#HashMap在1-8中"><span class="toc-number">8.</span> <span class="toc-text">HashMap在1.8中</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#关于HashMap容量是2的N次幂和扩容也是2的N次幂"><span class="toc-number">9.</span> <span class="toc-text">关于HashMap容量是2的N次幂和扩容也是2的N次幂</span></a></li></ol>
+                    </div>
+                </span>
+            </div>
         </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/12/18/Words-of-the-day9/" class="archive-article-date">
-  	<time datetime="2019-12-18T00:17:17.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-12-18</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/12/18/Words-of-the-day9/">Words of the day9</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">word</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/基础//" class="article-tag-list-link color3">基础</a>
-        		</li>
-      		
-		</ul>
-	</div>
+        
+    </div>
+</aside>
 
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/12/17/%E7%BA%BF%E7%A8%8B%E5%9F%BA%E7%A1%80/" class="archive-article-date">
-  	<time datetime="2019-12-17T13:49:27.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-12-17</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/12/17/%E7%BA%BF%E7%A8%8B%E5%9F%BA%E7%A1%80/">线程基础</a>
-    </h1>
-  
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Thread</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/基础//" class="article-tag-list-link color3">基础</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/12/17/Words-of-the-day8/" class="archive-article-date">
-  	<time datetime="2019-12-16T23:45:14.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-12-17</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/12/17/Words-of-the-day8/">Words of the day8</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">word</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/基础//" class="article-tag-list-link color3">基础</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/12/16/Java%E5%9F%BA%E7%A1%80%E9%9D%A2%E8%AF%95%E9%A2%98/" class="archive-article-date">
-  	<time datetime="2019-12-16T09:45:37.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-12-16</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/12/16/Java%E5%9F%BA%E7%A1%80%E9%9D%A2%E8%AF%95%E9%A2%98/">Java基础综合(1)</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">java</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/基础//" class="article-tag-list-link color3">基础</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/12/16/Words-of-the-day7/" class="archive-article-date">
-  	<time datetime="2019-12-15T23:43:45.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-12-16</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/12/16/Words-of-the-day7/">Words of the day7</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">word</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/基础//" class="article-tag-list-link color3">基础</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/12/15/%E5%85%B3%E4%BA%8E%E5%BC%82%E5%B8%B8/" class="archive-article-date">
-  	<time datetime="2019-12-15T14:07:31.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-12-15</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/12/15/%E5%85%B3%E4%BA%8E%E5%BC%82%E5%B8%B8/">关于异常</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">exception</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/基础//" class="article-tag-list-link color3">基础</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/12/15/Words-of-the-day6/" class="archive-article-date">
-  	<time datetime="2019-12-15T01:32:38.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-12-15</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/12/15/Words-of-the-day6/">Words of the day6</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">word</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/基础//" class="article-tag-list-link color3">基础</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/12/14/Words-of-the-day5/" class="archive-article-date">
-  	<time datetime="2019-12-14T00:27:41.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-12-14</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/12/14/Words-of-the-day5/">Words of the day5</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">word</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/基础//" class="article-tag-list-link color3">基础</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
   
   
-    </div></section>
   
 
-    
-    <nav id="page-nav">
-      <span class="page-number current">1</span><a class="page-number" href="/categories/%E5%9F%BA%E7%A1%80/page/2/">2</a><a class="extend next" rel="next" href="/categories/%E5%9F%BA%E7%A1%80/page/2/">Next &amp;raquo;</a>
-    </nav>
+  
+
+  
+
   
 
 
@@ -687,10 +498,10 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
 		isTag: false,
-		isCategory: true,
+		isCategory: false,
 		open_in_new: false,
 		toc_hide_index: true,
 		root: "/",
