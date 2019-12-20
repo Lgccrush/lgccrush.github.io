@@ -6,16 +6,23 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Tag: exception | Fighting</title>
+  <title>关于IO | Fighting</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="自律">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Fighting">
-<meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;tags&#x2F;exception&#x2F;index.html">
+  <meta name="description" content="IO和序列化机制">
+<meta property="og:type" content="article">
+<meta property="og:title" content="关于IO">
+<meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;12&#x2F;19&#x2F;%E5%85%B3%E4%BA%8EIO&#x2F;index.html">
 <meta property="og:site_name" content="Fighting">
-<meta property="og:description" content="自律">
+<meta property="og:description" content="IO和序列化机制">
+<meta property="og:image" content="http:&#x2F;&#x2F;q29tu51o9.bkt.clouddn.com&#x2F;%E6%90%9C%E7%8B%97%E6%88%AA%E5%9B%BE20191220182637.png">
+<meta property="og:image" content="http:&#x2F;&#x2F;q29tu51o9.bkt.clouddn.com&#x2F;IO1.png">
+<meta property="og:image" content="http:&#x2F;&#x2F;q29tu51o9.bkt.clouddn.com&#x2F;%E6%90%9C%E7%8B%97%E6%88%AA%E5%9B%BE20191220193037.png">
+<meta property="article:published_time" content="2019-12-19T15:21:44.000Z">
+<meta property="article:modified_time" content="2019-12-19T15:21:44.000Z">
 <meta property="article:author" content="Crush">
+<meta property="article:tag" content="IO">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http:&#x2F;&#x2F;q29tu51o9.bkt.clouddn.com&#x2F;%E6%90%9C%E7%8B%97%E6%88%AA%E5%9B%BE20191220182637.png">
   
     <link rel="alternative" href="/atom.xml" title="Fighting" type="application/atom+xml">
   
@@ -155,48 +162,89 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-关于IO" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2019" class="archive-year">2019</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/12/15/%E5%85%B3%E4%BA%8E%E5%BC%82%E5%B8%B8/" class="archive-article-date">
-  	<time datetime="2019-12-15T14:07:31.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-12-15</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/12/15/%E5%85%B3%E4%BA%8E%E5%BC%82%E5%B8%B8/">关于异常</a>
+    <h1 class="article-title" itemprop="name">
+      关于IO
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
+        
+        <a href="/2019/12/19/%E5%85%B3%E4%BA%8EIO/" class="archive-article-date">
+  	<time datetime="2019-12-19T15:21:44.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-12-19</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h4 id="IO和序列化机制"><a href="#IO和序列化机制" class="headerlink" title="IO和序列化机制"></a>IO和序列化机制</h4><a id="more"></a>
+
+<h4 id="基本的流"><a href="#基本的流" class="headerlink" title="基本的流"></a>基本的流</h4><p><img src="http://q29tu51o9.bkt.clouddn.com/%E6%90%9C%E7%8B%97%E6%88%AA%E5%9B%BE20191220182637.png" alt=""></p>
+<h4 id="InputStream-基本字节输入流"><a href="#InputStream-基本字节输入流" class="headerlink" title="InputStream(基本字节输入流)"></a>InputStream(基本字节输入流)</h4><p>​    低级流    FileInputStream(基本文件字节输入流)</p>
+<p>​    高级流    BufferInputStream(缓冲字节输入流)    </p>
+<h4 id="OutputStrem-基本字节输出流"><a href="#OutputStrem-基本字节输出流" class="headerlink" title="OutputStrem(基本字节输出流)"></a>OutputStrem(基本字节输出流)</h4><p>​    低级流    FileOutputStream(基本文件字节输出流)</p>
+<p>​    高级流    BufferOutputStream(缓冲字节输出流)</p>
+<h4 id="Reader-基本字符输入流"><a href="#Reader-基本字符输入流" class="headerlink" title="Reader(基本字符输入流)"></a>Reader(基本字符输入流)</h4><p>​    低级流    FileReader(基本文件字符输入流)</p>
+<p>​    高级流    BufferReader(缓冲字符输入流)</p>
+<p>​                    InputStreamReader(转换字符流)</p>
+<h4 id="Writer-基本字符输出流"><a href="#Writer-基本字符输出流" class="headerlink" title="Writer(基本字符输出流)"></a>Writer(基本字符输出流)</h4><p>​    低级流    FileWriter(基本文件字符输出流)</p>
+<p>​    高级流    BufferWriter(缓冲字符输出流)</p>
+<p>​                    OutputStreamWiter(转换字符流)</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F;使用IO流进行读写基本操作步骤</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F;	1提供文件和流</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line">	Reader br &#x3D; null;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">4</span></pre></td><td class="code"><pre><span class="line">	Writer bw &#x3D; null;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">5</span></pre></td><td class="code"><pre><span class="line">	try&#123;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">6</span></pre></td><td class="code"><pre><span class="line">	 br &#x3D; new BufferedReader(new FileReader(new File(&quot;he.txt&quot;)));</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">7</span></pre></td><td class="code"><pre><span class="line">	 bw &#x3D; new BufferedWriter(new FileWriter(new File(&quot;hecopy.txt&quot;)));</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">8</span></pre></td><td class="code"><pre><span class="line">	&#x2F;&#x2F;2设置char[]数组</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">9</span></pre></td><td class="code"><pre><span class="line">	char[] buffe &#x3D; new char[1024];</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">10</span></pre></td><td class="code"><pre><span class="line">    int len;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">11</span></pre></td><td class="code"><pre><span class="line">    &#x2F;&#x2F;3读写操作</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">12</span></pre></td><td class="code"><pre><span class="line">    while((len &#x3D; br.read(buffe)) !&#x3D; -1)&#123;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">13</span></pre></td><td class="code"><pre><span class="line">    	bw.write();</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">14</span></pre></td><td class="code"><pre><span class="line">    	bw.writeLine(buffe,0,len);</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">15</span></pre></td><td class="code"><pre><span class="line">    &#125;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">16</span></pre></td><td class="code"><pre><span class="line">	&#125;catch(Exception e)&#123;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">17</span></pre></td><td class="code"><pre><span class="line">		e.printStackTrace();</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">18</span></pre></td><td class="code"><pre><span class="line">	&#125;finally&#123;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">19</span></pre></td><td class="code"><pre><span class="line">	&#x2F;&#x2F;4关闭流</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">20</span></pre></td><td class="code"><pre><span class="line">		if(br !&#x3D; null)&#123;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">21</span></pre></td><td class="code"><pre><span class="line">			try&#123;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">22</span></pre></td><td class="code"><pre><span class="line">				br.close();</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">23</span></pre></td><td class="code"><pre><span class="line">			&#125;catch(Exception e)&#123;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">24</span></pre></td><td class="code"><pre><span class="line">		e.printStackTrace();</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">25</span></pre></td><td class="code"><pre><span class="line">			&#125;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">26</span></pre></td><td class="code"><pre><span class="line">		&#125;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">27</span></pre></td><td class="code"><pre><span class="line">		if(bw !&#x3D; null)&#123;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">28</span></pre></td><td class="code"><pre><span class="line">			try&#123;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">29</span></pre></td><td class="code"><pre><span class="line">				bw.close();</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">30</span></pre></td><td class="code"><pre><span class="line">			&#125;catch(Exception e)&#123;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">31</span></pre></td><td class="code"><pre><span class="line">		e.printStackTrace();</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">32</span></pre></td><td class="code"><pre><span class="line">			&#125;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">33</span></pre></td><td class="code"><pre><span class="line">		&#125;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">34</span></pre></td><td class="code"><pre><span class="line">	&#125;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">35</span></pre></td><td class="code"><pre><span class="line">​</span></pre></td></tr></table></figure>
+
+<h4 id="流的分类"><a href="#流的分类" class="headerlink" title="流的分类"></a>流的分类</h4><p><img src="http://q29tu51o9.bkt.clouddn.com/IO1.png" alt=""></p>
+<h4 id="转换流"><a href="#转换流" class="headerlink" title="转换流"></a>转换流</h4><p><img src="http://q29tu51o9.bkt.clouddn.com/%E6%90%9C%E7%8B%97%E6%88%AA%E5%9B%BE20191220193037.png" alt=""></p>
+<p>InputStreamReader (读入)将字节流转换为字符流 相当于解码 </p>
+<p>OutputStreamWriter (写出)将字符流转换为字节流 相当于编码 </p>
+<p>转换流属于字符流 可以设置字符集 前后一致</p>
+<h4 id="序列化"><a href="#序列化" class="headerlink" title="序列化"></a>序列化</h4><p>为了使对象从内存转为二进制读到硬盘 或者通过网络传输</p>
+<p>实现Serializable接口 提供SerialVersionUID 属性是对象也要是可序列化的</p>
+
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">exception</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">IO</a>
         		</li>
       		
 		</ul>
 	</div>
 
-          
+      
 	<div class="article-category tagcloud">
 		<i class="icon-book icon"></i>
 		<ul class="article-tag-list">
@@ -209,17 +257,126 @@
 	</div>
 
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2019/12/19/%E5%85%B3%E4%BA%8EIO/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
+  
+<nav id="article-nav">
+  
+    <a href="/2019/12/20/Words-of-the-day11/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          Words of the day11
+        
+      </div>
+    </a>
   
   
-    </div></section>
+    <a href="/2019/12/19/%E5%85%B3%E4%BA%8EString-StringBuffer-StringBuilder/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">关于String,StringBuffer,StringBuilder</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#IO和序列化机制"><span class="toc-number">1.</span> <span class="toc-text">IO和序列化机制</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#基本的流"><span class="toc-number">2.</span> <span class="toc-text">基本的流</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#InputStream-基本字节输入流"><span class="toc-number">3.</span> <span class="toc-text">InputStream(基本字节输入流)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#OutputStrem-基本字节输出流"><span class="toc-number">4.</span> <span class="toc-text">OutputStrem(基本字节输出流)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Reader-基本字符输入流"><span class="toc-number">5.</span> <span class="toc-text">Reader(基本字符输入流)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Writer-基本字符输出流"><span class="toc-number">6.</span> <span class="toc-text">Writer(基本字符输出流)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#流的分类"><span class="toc-number">7.</span> <span class="toc-text">流的分类</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#转换流"><span class="toc-number">8.</span> <span class="toc-text">转换流</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#序列化"><span class="toc-number">9.</span> <span class="toc-text">序列化</span></a></li></ol>
+                    </div>
+                </span>
+            </div>
+        </div>
+        
+    </div>
+</aside>
+
+
+
+  
+  
   
 
-    
+  
+
+  
+
+  
 
 
           </div>
@@ -242,9 +399,9 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
-		isTag: true,
+		isTag: false,
 		isCategory: false,
 		open_in_new: false,
 		toc_hide_index: true,

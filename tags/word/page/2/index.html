@@ -6,18 +6,15 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>关于String,StringBuffer,StringBuilder | Fighting</title>
+  <title>Tag: word | Fighting</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="base">
-<meta property="og:type" content="article">
-<meta property="og:title" content="关于String,StringBuffer,StringBuilder">
-<meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;12&#x2F;11&#x2F;%E5%85%B3%E4%BA%8EString-StringBuffer-StringBuilder&#x2F;index.html">
+  <meta name="description" content="自律">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Fighting">
+<meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;tags&#x2F;word&#x2F;page&#x2F;2&#x2F;index.html">
 <meta property="og:site_name" content="Fighting">
-<meta property="og:description" content="base">
-<meta property="article:published_time" content="2019-12-11T14:37:21.000Z">
-<meta property="article:modified_time" content="2019-12-11T14:37:21.000Z">
+<meta property="og:description" content="自律">
 <meta property="article:author" content="Crush">
-<meta property="article:tag" content="java">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternative" href="/atom.xml" title="Fighting" type="application/atom+xml">
@@ -158,129 +155,48 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-关于String-StringBuffer-StringBuilder" class="article article-type-post " itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
+            
   
-    <h1 class="article-title" itemprop="name">
-      关于String,StringBuffer,StringBuilder
+  
+    
+    
+      
+      
+      <section class="archives-wrap">
+        <div class="archive-year-wrap">
+          <a href="/archives/2019" class="archive-year">2019</a>
+        </div>
+        <div class="archives">
+    
+    <article class="archive-article archive-type-post">
+  <div class="archive-article-inner">
+    <header class="archive-article-header">
+      	<div class="article-meta">
+	      	<a href="/2019/12/10/Words-of-the-day1/" class="archive-article-date">
+  	<time datetime="2019-12-10T03:43:09.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-12-10</time>
+</a>
+        </div>
+    	 
+  
+    <h1 itemprop="name">
+      <a class="archive-article-title" href="/2019/12/10/Words-of-the-day1/">Words of the day1</a>
     </h1>
   
 
-        
-        <a href="/2019/12/11/%E5%85%B3%E4%BA%8EString-StringBuffer-StringBuilder/" class="archive-article-date">
-  	<time datetime="2019-12-11T14:37:21.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-12-11</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h4 id="base"><a href="#base" class="headerlink" title="base"></a>base</h4><a id="more"></a>
-
-<h3 id="String"><a href="#String" class="headerlink" title="String"></a>String</h3><p> final修饰的 不能继承 底层是final char[ ] 所以不可变的字符序列</p>
-<p>存在常量池 常量池中不会存在相同内容的常量</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line"><span class="comment">//s1和s2指向同一个 也体现了不可变性</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line">String s1 = <span class="string">"abc"</span>;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line">String s2 = <span class="string">"abc"</span>;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">4</span></pre></td><td class="code"><pre><span class="line"><span class="comment">//创建了两个对象 一个在常量池  一个在堆里 value指向常量池</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">5</span></pre></td><td class="code"><pre><span class="line">String s3 = <span class="keyword">new</span> String(<span class="string">"abc"</span>);</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">6</span></pre></td><td class="code"><pre><span class="line">System.out.println(s1 == s2);<span class="comment">//true 指向常量池的同一个</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">7</span></pre></td><td class="code"><pre><span class="line">System.out.println(s1.equals(s2));<span class="comment">//String重写了equals 比较的实体内容</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">8</span></pre></td><td class="code"><pre><span class="line">System.out.println(s1 == s3);<span class="comment">//false ==比较地址池 s3在堆里 s1在常量池里</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">9</span></pre></td><td class="code"><pre><span class="line">System.out.println(s1.equals(s3));<span class="comment">//String重写了equals 比较的实体内容</span></span></pre></td></tr></table></figure>
-
-<h3 id="String部分方法"><a href="#String部分方法" class="headerlink" title="String部分方法"></a>String部分方法</h3><p>//        创建字符串 字符串一旦初始化就不能改变</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">String str = <span class="string">"123JavaSE"</span>;</span></pre></td></tr></table></figure>
-
-<p>//         获取字符串长度 length()</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">System.out.println(<span class="string">"字符串长度:"</span>+str.length());</span></pre></td></tr></table></figure>
-
-<p>//        获取指定字符在字符串的位置 没有找到返回-1 indexOf(str)</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">System.out.println(<span class="string">"j在"</span>+str.indexOf(<span class="string">"j"</span>)+<span class="string">"位置上"</span>);</span></pre></td></tr></table></figure>
-
-<p>//        从指定位置开始找 indexOf(str,int)</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">System.out.println(<span class="string">"v后出现的a的位置:"</span>+str.indexOf(<span class="string">"a"</span>,str.indexOf(<span class="string">"v"</span>)));</span></pre></td></tr></table></figure>
-
-<p>//        查找字符最后出现的位置 lastIndexOf(str)</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">System.out.println(&quot;a最后出现的位置&quot;+str.lastIndexOf(&quot;a&quot;));</span></pre></td></tr></table></figure>
-
-<p>//        截取字符串 subString(start,end) 包含头不包含尾 没有end直接截取到末尾</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">System.out.println(<span class="string">"截取字符串中的123:"</span>+str.substring(<span class="number">0</span>, <span class="number">4</span>));</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line">System.out.println(<span class="string">"截取字符串中的javaSE:"</span>+str.substring(<span class="number">3</span>));</span></pre></td></tr></table></figure>
-
-<p>//        去除字符串两边的空格 trim()</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">String str1 = <span class="string">"   123java "</span>;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line">System.out.println(<span class="string">"去除两边的字符串的空格:"</span>+str1.trim());</span></pre></td></tr></table></figure>
-
-<p>//        trim只能去掉字符串两边的字符 去掉所有字符可以用 replace方法</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">String str2 = <span class="string">"  123  java"</span>;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line">System.out.println(<span class="string">"去除字符串的空格:"</span>+str2.replace(<span class="string">" "</span>, <span class="string">""</span>));</span></pre></td></tr></table></figure>
-
-<p>//        查找字符串指定字符 charAt()</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">System.out.println(<span class="string">"字符串第3个字符是:"</span>+str.charAt(<span class="number">2</span>));</span></pre></td></tr></table></figure>
-
-<p>//        判断是否以某个字符结尾或者开始 startWith(str) endWith(str)</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">System.out.println(<span class="string">"是否以1开头"</span>+str.startsWith(<span class="string">"1"</span>));</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line">System.out.println(<span class="string">"是否以a结尾"</span>+str.endsWith(<span class="string">"a"</span>));</span></pre></td></tr></table></figure>
-
-<p>//        将字符转为大写或者小写 toUpperCase()  toLowerCase()</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">System.out.println(<span class="string">"原来的字符串"</span>+str);</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line">System.out.println(<span class="string">"将字符转为大写:"</span>+str.toUpperCase());</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line">System.out.println(<span class="string">"将字符转为小写:"</span>+str.toLowerCase());</span></pre></td></tr></table></figure>
-
-<p>//        将其它数据类型转换为字符串 静态方法 String.valueOf()</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">int i &#x3D; 6;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line">System.out.println(&quot;将i转换为字符串进行运算:&quot;+String.valueOf(i)+1);</span></pre></td></tr></table></figure>
-
-<hr>
-<p>String练习</p>
-<p> 编写一个程序,要求用户输入一个网站消息</p>
-<p>格式可以如下:1<a href="http://www.baidu.com" target="_blank" rel="noopener">www.baidu.com</a> 2<a href="http://www.baidu.con.cn" target="_blank" rel="noopener">www.baidu.con.cn</a> 3<a href="http://www.baidu.com" target="_blank" rel="noopener">http://www.baidu.com</a></p>
-<p>然后经过处理,输出域名,如:baidu</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">StringTest</span> </span>&#123;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line">​	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line">​		Scanner scanner = <span class="keyword">new</span> Scanner(System.in);</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">4</span></pre></td><td class="code"><pre><span class="line">​		System.out.println(<span class="string">"请输入一个网站"</span>);</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">5</span></pre></td><td class="code"><pre><span class="line">​		String str = scanner.nextLine();</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">6</span></pre></td><td class="code"><pre><span class="line">​		<span class="comment">//获取第一个字符的位置</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">7</span></pre></td><td class="code"><pre><span class="line">​		<span class="keyword">int</span> start = str.indexOf(<span class="string">"."</span>)+<span class="number">1</span>;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">8</span></pre></td><td class="code"><pre><span class="line">​		<span class="comment">//获取第二个字符的位置 以第一个.开始找下一个.的位置</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">9</span></pre></td><td class="code"><pre><span class="line">​		<span class="keyword">int</span> end = str.indexOf(<span class="string">"."</span>, start);</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">10</span></pre></td><td class="code"><pre><span class="line">​		<span class="comment">//截取正方形得到域名</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">11</span></pre></td><td class="code"><pre><span class="line">​		System.out.println(<span class="string">"域名是:"</span>+str.substring(start, end));</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">12</span></pre></td><td class="code"><pre><span class="line">​	&#125;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">13</span></pre></td><td class="code"><pre><span class="line">&#125;</span></pre></td></tr></table></figure>
-
-<h3 id="字符串拼接方式赋值的对比"><a href="#字符串拼接方式赋值的对比" class="headerlink" title="字符串拼接方式赋值的对比"></a>字符串拼接方式赋值的对比</h3><p>1.常量与常量的拼接结果在常量池。且常量池中不会存在相同内容的常量。<br>2.只要其中一个是变量，结果就在堆中。<br>3.如果拼接的结果调用intern()方法，返回值就在常量池中</p>
-<h3 id="StringBuffer-And-StringBuilder"><a href="#StringBuffer-And-StringBuilder" class="headerlink" title="StringBuffer And StringBuilder"></a>StringBuffer And StringBuilder</h3><p>都是可变字符序列的 底层都是char [] 实现 长度是16</p>
-<p>StringBuffer线程安全的 效率慢 多线程使用</p>
-<p>StringBuilder 线程不安全的 效率高 单线程或不涉及到安全问题时使用</p>
-<p>常用方法:</p>
-<p>​    增加 append()</p>
-<p>​    删除 delete()</p>
-<p>​    查找 charAt()</p>
-<p>​    改变 charSet()</p>
-<p>​    插入 insert</p>
-<h3 id="三者转换"><a href="#三者转换" class="headerlink" title="三者转换"></a>三者转换</h3><p>String 使用StringBuilder或者StringBuffer构造器转换</p>
-<p>StringBuilder或者StringBuffer  使用toString方法转换</p>
-<h3 id="对比String、StringBuffer、StringBuilder三者的执行效率"><a href="#对比String、StringBuffer、StringBuilder三者的执行效率" class="headerlink" title="对比String、StringBuffer、StringBuilder三者的执行效率"></a>对比String、StringBuffer、StringBuilder三者的执行效率</h3><p>从高到低排列：StringBuilder &gt; StringBuffer &gt; String</p>
-
-      
-
-      
-        <div class="page-reward">
-          <a href="javascript:;" class="page-reward-btn tooltip-top">
-            <div class="tooltip tooltip-east">
-            <span class="tooltip-item">
-              赏
-            </span>
-            <span class="tooltip-content">
-              <span class="tooltip-text">
-                <span class="tooltip-inner">
-                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
-                  <div class="reward-box">
-                    
-                    
-                  </div>
-                </span>
-              </span>
-            </span>
-          </div>
-          </a>
-        </div>
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
+        <div class="article-info info-on-right">
+          
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">java</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">word</a>
         		</li>
       		
 		</ul>
 	</div>
 
-      
+          
 	<div class="article-category tagcloud">
 		<i class="icon-book icon"></i>
 		<ul class="article-tag-list">
@@ -293,125 +209,20 @@
 	</div>
 
 
-      
-
-      
-        
-<div class="share-btn share-icons tooltip-left">
-  <div class="tooltip tooltip-east">
-    <span class="tooltip-item">
-      <a href="javascript:;" class="share-sns share-outer">
-        <i class="icon icon-share"></i>
-      </a>
-    </span>
-    <span class="tooltip-content">
-      <div class="share-wrap">
-        <div class="share-icons">
-          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
-            <i class="icon icon-weibo"></i>
-          </a>
-          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
-            <i class="icon icon-weixin"></i>
-          </a>
-          <a class="qq share-sns" href="javascript:;" data-type="qq">
-            <i class="icon icon-qq"></i>
-          </a>
-          <a class="douban share-sns" href="javascript:;" data-type="douban">
-            <i class="icon icon-douban"></i>
-          </a>
-          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
-            <i class="icon icon-qzone"></i>
-          </a>
-          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
-            <i class="icon icon-facebook"></i>
-          </a>
-          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
-            <i class="icon icon-twitter"></i>
-          </a>
-          <a class="google share-sns" href="javascript:;" data-type="google">
-            <i class="icon icon-google"></i>
-          </a>
         </div>
-      </div>
-    </span>
-  </div>
-</div>
-
-<div class="page-modal wx-share js-wx-box">
-    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
-    <p>扫一扫，分享到微信</p>
-    <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2019/12/11/%E5%85%B3%E4%BA%8EString-StringBuffer-StringBuilder/" alt="微信分享二维码">
-    </div>
-</div>
-
-<div class="mask js-mask"></div>
-      
-      <div class="clearfix"></div>
-    </div>
+        <div class="clearfix"></div>
+    </header>
   </div>
 </article>
-
-  
-<nav id="article-nav">
-  
-    <a href="/2019/12/12/words-of-the-day3/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          Words of the day3
-        
-      </div>
-    </a>
   
   
-    <a href="/2019/12/11/words-of-the-day2/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">Words of the day2</div>
-      <i class="icon-circle-right"></i>
-    </a>
-  
-</nav>
-
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-        <div class="toc-container tooltip-left">
-            <i class="icon-font icon-category"></i>
-            <div class="tooltip tooltip-east">
-                <span class="tooltip-item">
-                </span>
-                <span class="tooltip-content">
-                    <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#base"><span class="toc-number">1.</span> <span class="toc-text">base</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#String"><span class="toc-number"></span> <span class="toc-text">String</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#String部分方法"><span class="toc-number"></span> <span class="toc-text">String部分方法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#字符串拼接方式赋值的对比"><span class="toc-number"></span> <span class="toc-text">字符串拼接方式赋值的对比</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#StringBuffer-And-StringBuilder"><span class="toc-number"></span> <span class="toc-text">StringBuffer And StringBuilder</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#三者转换"><span class="toc-number"></span> <span class="toc-text">三者转换</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#对比String、StringBuffer、StringBuilder三者的执行效率"><span class="toc-number"></span> <span class="toc-text">对比String、StringBuffer、StringBuilder三者的执行效率</span></a>
-                    </div>
-                </span>
-            </div>
-        </div>
-        
-    </div>
-</aside>
-
-
-
-  
-  
+    </div></section>
   
 
-  
-
-  
-
+    
+    <nav id="page-nav">
+      <a class="extend prev" rel="prev" href="/tags/word/">&amp;laquo; Prev</a><a class="page-number" href="/tags/word/">1</a><span class="page-number current">2</span>
+    </nav>
   
 
 
@@ -435,9 +246,9 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: true,
+		isPost: false,
 		isArchive: false,
-		isTag: false,
+		isTag: true,
 		isCategory: false,
 		open_in_new: false,
 		toc_hide_index: true,
@@ -517,7 +328,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">GitHub</a>
+                <a href="javascript:void(0)" class="js-tag color3">IO</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">exception</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -525,7 +340,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">exception</a>
+                <a href="javascript:void(0)" class="js-tag color2">GitHub</a>
               </li>
              
               <li class="article-tag-list-item">
