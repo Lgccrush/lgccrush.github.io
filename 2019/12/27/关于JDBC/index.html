@@ -220,6 +220,12 @@
 <p>​    BeanHandler    将结果集的第一行封装成一个对象(单个类) new BeanHandler&lt;&gt;(xx.class)</p>
 <p>​    BeanListHandler 将结果集的所有行,封装成集合返回 new BeanListHandler&lt;&gt;(xx.class)</p>
 <p>​    SaclarHander 将结果集的第一行第一列,单条数据返回 new ScalarHanler()</p>
+<h4 id="Spring-的JDBCTemplate"><a href="#Spring-的JDBCTemplate" class="headerlink" title="Spring 的JDBCTemplate"></a>Spring 的JDBCTemplate</h4><p>导包 创建JDBCTemplate的对象 传入连接</p>
+<p>使用方法update进行增删改</p>
+<p>使用方法query进行查找</p>
+<p>​    query(sql,new BeanPropertyRowMapper&lt;类型&gt;(类型).class)</p>
+<p>​    把查询的结果封装为对象装入list集合返回</p>
+<p>​    queryObject()用于聚合函数(count)查询 将结果封装为对象</p>
 <h4 id="DAO"><a href="#DAO" class="headerlink" title="DAO"></a>DAO</h4><p>Data Access Object 数据访问对象</p>
 
       
@@ -374,7 +380,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#JDBC"><span class="toc-number">1.</span> <span class="toc-text">JDBC</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#事务"><span class="toc-number">2.</span> <span class="toc-text">事务</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#事务的体现"><span class="toc-number">3.</span> <span class="toc-text">事务的体现</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#批量处理"><span class="toc-number">4.</span> <span class="toc-text">批量处理</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#使用数据库连接池"><span class="toc-number">5.</span> <span class="toc-text">使用数据库连接池</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#DBUtils"><span class="toc-number">6.</span> <span class="toc-text">DBUtils</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#DAO"><span class="toc-number">7.</span> <span class="toc-text">DAO</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#JDBC"><span class="toc-number">1.</span> <span class="toc-text">JDBC</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#事务"><span class="toc-number">2.</span> <span class="toc-text">事务</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#事务的体现"><span class="toc-number">3.</span> <span class="toc-text">事务的体现</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#批量处理"><span class="toc-number">4.</span> <span class="toc-text">批量处理</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#使用数据库连接池"><span class="toc-number">5.</span> <span class="toc-text">使用数据库连接池</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#DBUtils"><span class="toc-number">6.</span> <span class="toc-text">DBUtils</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Spring-的JDBCTemplate"><span class="toc-number">7.</span> <span class="toc-text">Spring 的JDBCTemplate</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#DAO"><span class="toc-number">8.</span> <span class="toc-text">DAO</span></a></li></ol>
                     </div>
                 </span>
             </div>
@@ -535,6 +541,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">JDBC</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">web</a>
               </li>
             
             <div class="clearfix"></div>
