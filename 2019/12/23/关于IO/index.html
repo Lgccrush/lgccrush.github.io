@@ -184,7 +184,7 @@
       
         <h4 id="IO和序列化机制"><a href="#IO和序列化机制" class="headerlink" title="IO和序列化机制"></a>IO和序列化机制</h4><a id="more"></a>
 
-<h4 id="基本的流"><a href="#基本的流" class="headerlink" title="基本的流"></a>基本的流</h4><p><img src="http://q29tu51o9.bkt.clouddn.com/%E6%90%9C%E7%8B%97%E6%88%AA%E5%9B%BE20191220182637.png" alt></p>
+<h4 id="基本的流"><a href="#基本的流" class="headerlink" title="基本的流"></a>基本的流</h4><p><img src="http://q29tu51o9.bkt.clouddn.com/%E6%90%9C%E7%8B%97%E6%88%AA%E5%9B%BE20191220182637.png" alt=""></p>
 <h4 id="InputStream-基本字节输入流"><a href="#InputStream-基本字节输入流" class="headerlink" title="InputStream(基本字节输入流)"></a>InputStream(基本字节输入流)</h4><p>​    低级流    FileInputStream(基本文件字节输入流)</p>
 <p>​    高级流    BufferInputStream(缓冲字节输入流)    </p>
 <h4 id="OutputStrem-基本字节输出流"><a href="#OutputStrem-基本字节输出流" class="headerlink" title="OutputStrem(基本字节输出流)"></a>OutputStrem(基本字节输出流)</h4><p>​    低级流    FileOutputStream(基本文件字节输出流)</p>
@@ -197,8 +197,8 @@
 <p>​                    OutputStreamWiter(转换字符流)</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F;使用IO流进行读写基本操作步骤</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F;	1提供文件和流</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line">	Reader br &#x3D; null;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">4</span></pre></td><td class="code"><pre><span class="line">	Writer bw &#x3D; null;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">5</span></pre></td><td class="code"><pre><span class="line">	try&#123;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">6</span></pre></td><td class="code"><pre><span class="line">	 br &#x3D; new BufferedReader(new FileReader(new File(&quot;he.txt&quot;)));</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">7</span></pre></td><td class="code"><pre><span class="line">	 bw &#x3D; new BufferedWriter(new FileWriter(new File(&quot;hecopy.txt&quot;)));</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">8</span></pre></td><td class="code"><pre><span class="line">	&#x2F;&#x2F;2设置char[]数组</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">9</span></pre></td><td class="code"><pre><span class="line">	char[] buffe &#x3D; new char[1024];</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">10</span></pre></td><td class="code"><pre><span class="line">    int len;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">11</span></pre></td><td class="code"><pre><span class="line">    &#x2F;&#x2F;3读写操作</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">12</span></pre></td><td class="code"><pre><span class="line">    while((len &#x3D; br.read(buffe)) !&#x3D; -1)&#123;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">13</span></pre></td><td class="code"><pre><span class="line">    	bw.write();</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">14</span></pre></td><td class="code"><pre><span class="line">    	bw.writeLine(buffe,0,len);</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">15</span></pre></td><td class="code"><pre><span class="line">    &#125;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">16</span></pre></td><td class="code"><pre><span class="line">	&#125;catch(Exception e)&#123;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">17</span></pre></td><td class="code"><pre><span class="line">		e.printStackTrace();</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">18</span></pre></td><td class="code"><pre><span class="line">	&#125;finally&#123;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">19</span></pre></td><td class="code"><pre><span class="line">	&#x2F;&#x2F;4关闭流</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">20</span></pre></td><td class="code"><pre><span class="line">		if(br !&#x3D; null)&#123;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">21</span></pre></td><td class="code"><pre><span class="line">			try&#123;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">22</span></pre></td><td class="code"><pre><span class="line">				br.close();</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">23</span></pre></td><td class="code"><pre><span class="line">			&#125;catch(Exception e)&#123;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">24</span></pre></td><td class="code"><pre><span class="line">		e.printStackTrace();</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">25</span></pre></td><td class="code"><pre><span class="line">			&#125;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">26</span></pre></td><td class="code"><pre><span class="line">		&#125;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">27</span></pre></td><td class="code"><pre><span class="line">		if(bw !&#x3D; null)&#123;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">28</span></pre></td><td class="code"><pre><span class="line">			try&#123;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">29</span></pre></td><td class="code"><pre><span class="line">				bw.close();</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">30</span></pre></td><td class="code"><pre><span class="line">			&#125;catch(Exception e)&#123;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">31</span></pre></td><td class="code"><pre><span class="line">		e.printStackTrace();</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">32</span></pre></td><td class="code"><pre><span class="line">			&#125;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">33</span></pre></td><td class="code"><pre><span class="line">		&#125;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">34</span></pre></td><td class="code"><pre><span class="line">	&#125;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">35</span></pre></td><td class="code"><pre><span class="line">​</span></pre></td></tr></table></figure>
 
-<h4 id="流的分类"><a href="#流的分类" class="headerlink" title="流的分类"></a>流的分类</h4><p><img src="http://q29tu51o9.bkt.clouddn.com/IO1.png" alt></p>
-<h4 id="转换流"><a href="#转换流" class="headerlink" title="转换流"></a>转换流</h4><p><img src="http://q29tu51o9.bkt.clouddn.com/%E6%90%9C%E7%8B%97%E6%88%AA%E5%9B%BE20191220193037.png" alt></p>
+<h4 id="流的分类"><a href="#流的分类" class="headerlink" title="流的分类"></a>流的分类</h4><p><img src="http://q29tu51o9.bkt.clouddn.com/IO1.png" alt=""></p>
+<h4 id="转换流"><a href="#转换流" class="headerlink" title="转换流"></a>转换流</h4><p><img src="http://q29tu51o9.bkt.clouddn.com/%E6%90%9C%E7%8B%97%E6%88%AA%E5%9B%BE20191220193037.png" alt=""></p>
 <p>InputStreamReader (读入)将字节流转换为字符流 相当于解码 </p>
 <p>OutputStreamWriter (写出)将字符流转换为字节流 相当于编码 </p>
 <p>转换流属于字符流 可以设置字符集 前后一致</p>
@@ -483,6 +483,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">test</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">IO</a>
               </li>
              
@@ -507,19 +511,23 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">GitHub</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">socket</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">pattern</a>
+                <a href="javascript:void(0)" class="js-tag color2">GitHub</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">git</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">Linux</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">pattern</a>
               </li>
              
               <li class="article-tag-list-item">
