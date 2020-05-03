@@ -8,16 +8,15 @@
   <link rel="dns-prefetch" href="http://yoursite.com">
   <title>Discuss-主页分页展示问题 | Fighting</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="展示问题在主页并进行分页">
+  <meta name="description" content="个人中心页面">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Discuss-主页分页展示问题">
 <meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2020&#x2F;03&#x2F;26&#x2F;Discuss-%E4%B8%BB%E9%A1%B5%E5%88%86%E9%A1%B5%E5%B1%95%E7%A4%BA%E9%97%AE%E9%A2%98&#x2F;index.html">
 <meta property="og:site_name" content="Fighting">
-<meta property="og:description" content="展示问题在主页并进行分页">
-<meta property="article:published_time" content="2020-03-25T23:26:19.000Z">
-<meta property="article:modified_time" content="2020-03-25T23:26:19.000Z">
+<meta property="og:description" content="个人中心页面">
+<meta property="article:published_time" content="2020-03-25T23:26:19.272Z">
+<meta property="article:modified_time" content="2020-03-25T23:26:19.272Z">
 <meta property="article:author" content="Crush">
-<meta property="article:tag" content="limit">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternative" href="/atom.xml" title="Fighting" type="application/atom+xml">
@@ -171,39 +170,41 @@
 
         
         <a href="/2020/03/26/Discuss-%E4%B8%BB%E9%A1%B5%E5%88%86%E9%A1%B5%E5%B1%95%E7%A4%BA%E9%97%AE%E9%A2%98/" class="archive-article-date">
-  	<time datetime="2020-03-25T23:26:19.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-03-26</time>
+  	<time datetime="2020-03-25T23:26:19.272Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-03-26</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h4 id="展示问题在主页并进行分页"><a href="#展示问题在主页并进行分页" class="headerlink" title="展示问题在主页并进行分页"></a>展示问题在主页并进行分页</h4><a id="more"></a>
+        <ol>
+<li><ol>
+<li><h4 id="个人中心页面"><a href="#个人中心页面" class="headerlink" title="个人中心页面"></a>个人中心页面</h4><a id="more"></a>
 
-<h4 id="展示问题"><a href="#展示问题" class="headerlink" title="展示问题"></a>展示问题</h4><p><strong>需求:在访问主页的时候 查出问题,列表显示并分页</strong></p>
+<h4 id="个人中心分模块展示"><a href="#个人中心分模块展示" class="headerlink" title="个人中心分模块展示"></a>个人中心分模块展示</h4><p><strong>需求:包括我的提问和最新回复两个模块,分别展示不同的内容</strong></p>
 <ol>
-<li>创建PaginationDTO, 包括页面元素(分页元素,问题和user信息)</li>
-<li>通过count查出问题总数totalCount</li>
-<li>计算总页数totalPage</li>
-</ol>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">Integer totalPage;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line">       <span class="keyword">if</span> (totalCount % size == <span class="number">0</span>) &#123;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line">           totalPage = totalCount / size;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">4</span></pre></td><td class="code"><pre><span class="line">       &#125; <span class="keyword">else</span> &#123;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">5</span></pre></td><td class="code"><pre><span class="line">           totalPage = totalCount / size + <span class="number">1</span>;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">6</span></pre></td><td class="code"><pre><span class="line">       &#125;</span></pre></td></tr></table></figure>
+<li><p>创建ProfileController,绑定地址@GetMapping(“/profile/{action}”),区分action为我的提问还是最新回复</p>
+</li>
+<li><p>在我的提问里分页展示当前用户自己的提问</p>
+</li>
+<li><p>通过HttpServletRequest 得到session在得到user信息,并进行校验</p>
+</li>
+<li><p>通话userID查出所对应的question总数totalCount,在计算出totalpage,使用PaginationDTO的方法设置页面展示</p>
+</li>
+<li><p>通过userID查出所有问题questios并分页,赋值question和user到QuestionDTO中,把QuestionDTO赋值道paginationDTO中,然后返回个人中心页面</p>
+<!--more-->
 
-<ol start="4">
-<li>调用PaginationDTO的方法设置页面显示</li>
-<li>通过page,size计算出偏移量offset = size * (page - 1);</li>
-<li>通过offset,size进行分页并查出所有提问</li>
-</ol>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> * <span class="keyword">from</span> question <span class="keyword">limit</span> <span class="keyword">offset</span>,<span class="keyword">size</span>;</span></pre></td></tr></table></figure>
-
-<ol start="7">
-<li>创建关联user和question的类questionDTO,遍历查出的所有提问使用beanUtils.copyProperties复制question所有属性,通过creator查出对应的user的信息并设置到questionDTO中,把questionDTO添加到list集合</li>
-<li>最终Pagination添加questionDTO返回到页面</li>
-</ol>
-<h4 id="查看问题"><a href="#查看问题" class="headerlink" title="查看问题"></a>查看问题</h4><p><strong>需求:通过点击主页问题进入问题详情页面</strong></p>
+<h4 id="个人中心分模块展示-1"><a href="#个人中心分模块展示-1" class="headerlink" title="个人中心分模块展示"></a>个人中心分模块展示</h4><p><strong>需求:包括我的提问和最新回复两个模块,分别展示不同的内容</strong></p>
 <ol>
-<li>在每个提问绑定ID<ol>
-<li>创建QuestionController使用GetMapping(“/question/{id}”)动态获取ID,参数注解使用@PathVariable(“id”)Integer id</li>
-<li>通过ID查出对应得question,通过question的creator查出对应得user,设置question和user信息到questionDTO并返回到question.HTML</li>
+<li>创建ProfileController,绑定地址@GetMapping(“/profile/{action}”),区分action为我的提问还是最新回复</li>
+<li>在我的提问里分页展示当前用户自己的提问</li>
+<li>通过HttpServletRequest 得到session在得到user信息,并进行校验</li>
+<li>通话userID查出所对应的question总数totalCount,在计算出totalpage,使用PaginationDTO的方法设置页面展示</li>
+<li>通过userID查出所有问题questios并分页,赋值question和user到QuestionDTO中,把QuestionDTO赋值道paginationDTO中,然后返回</li>
+</ol>
+</li>
+</ol>
+</li>
 </ol>
 </li>
 </ol>
@@ -236,29 +237,7 @@
     <div class="article-info article-info-index">
       
       
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">limit</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
       
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/study//" class="article-tag-list-link color1">study</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
 
       
 
@@ -360,7 +339,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#展示问题在主页并进行分页"><span class="toc-number">1.</span> <span class="toc-text">展示问题在主页并进行分页</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#展示问题"><span class="toc-number">2.</span> <span class="toc-text">展示问题</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#查看问题"><span class="toc-number">3.</span> <span class="toc-text">查看问题</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#个人中心页面"><span class="toc-number">1.</span> <span class="toc-text">个人中心页面</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#个人中心分模块展示"><span class="toc-number">2.</span> <span class="toc-text">个人中心分模块展示</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#个人中心分模块展示-1"><span class="toc-number">3.</span> <span class="toc-text">个人中心分模块展示</span></a></li></ol>
                     </div>
                 </span>
             </div>
@@ -561,10 +540,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">profile</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">limit</a>
               </li>
             
             <div class="clearfix"></div>
