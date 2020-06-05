@@ -188,11 +188,22 @@
 <p>cp redis.conf  /usr/local/redis 把配置文件复制到安装目录redis 中</p>
 <p>cd ..   cd redis 进入安装目录redis</p>
 <p>vim redis.conf 编辑Redis配置文件</p>
+<p>修改protected-mode yes 为 no</p>
 <p>#127.0.0.1注销端口号 和 设置守护线程 daemonize yes</p>
 <p>在安装目录执行./bin/redis-server ./redis.conf 启动Redis</p>
 <p>netstat -tunpl | grep 6379 查看是否启动成功</p>
 <p>./bin/redis-cli -h 127.0.0.1 -p 6379连接</p>
 <p>pkill redis-server 关闭Redis</p>
+<p>连接Redis失败 关闭防火墙</p>
+<p>查看防火墙状态： </p>
+<p>[root@centos6 ~]# service iptables status</p>
+<p>iptables：未运行防火墙。</p>
+<p>开启防火墙：</p>
+<p>[root@centos6 ~]# service iptables start</p>
+<p>关闭防火墙：</p>
+<p>[root@centos6 ~]# service iptables stop</p>
+<p>永久关闭防火墙</p>
+<p>chkconfig iptables off</p>
 
       
 
@@ -239,7 +250,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="/categories/linux//" class="article-tag-list-link color1">linux</a>
+        			<a href="/categories/Linux//" class="article-tag-list-link color1">Linux</a>
         		</li>
       		
 		</ul>
@@ -469,10 +480,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">ask</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">hexo</a>
               </li>
              
@@ -514,10 +521,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">session</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">item</a>
               </li>
              
               <li class="article-tag-list-item">
