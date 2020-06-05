@@ -8,12 +8,12 @@
   <link rel="dns-prefetch" href="http://yoursite.com">
   <title>帮你解读什么是Redis缓存穿透和缓存雪崩（包含解决方案） | Fighting</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="帮你解读什么是Redis缓存穿透和缓存雪崩（包含解决方案）作为一个内存数据库，redis也总是免不了有各种各样的问题，这篇文章主要是针对其中两个问题进行讲解：缓存穿透和缓存雪崩。并给出一些解决方案。这两个问题是基本问题也是面试常问问题。 这篇文章我参考了很多篇，发现写的基本上一样，所以在此基础之上进行改进。内容是我在某字母网站看的尚硅谷的教程总结的。特在此说明。 一、缓存穿透 1、概念 缓存穿">
+  <meta name="description" content="帮你解读什么是Redis缓存穿透和缓存雪崩（包含解决方案）">
 <meta property="og:type" content="article">
 <meta property="og:title" content="帮你解读什么是Redis缓存穿透和缓存雪崩（包含解决方案）">
 <meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2020&#x2F;06&#x2F;05&#x2F;%E5%B8%AE%E4%BD%A0%E8%A7%A3%E8%AF%BB%E4%BB%80%E4%B9%88%E6%98%AFRedis%E7%BC%93%E5%AD%98%E7%A9%BF%E9%80%8F%E5%92%8C%E7%BC%93%E5%AD%98%E9%9B%AA%E5%B4%A9%EF%BC%88%E5%8C%85%E5%90%AB%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88%EF%BC%89&#x2F;index.html">
 <meta property="og:site_name" content="Fighting">
-<meta property="og:description" content="帮你解读什么是Redis缓存穿透和缓存雪崩（包含解决方案）作为一个内存数据库，redis也总是免不了有各种各样的问题，这篇文章主要是针对其中两个问题进行讲解：缓存穿透和缓存雪崩。并给出一些解决方案。这两个问题是基本问题也是面试常问问题。 这篇文章我参考了很多篇，发现写的基本上一样，所以在此基础之上进行改进。内容是我在某字母网站看的尚硅谷的教程总结的。特在此说明。 一、缓存穿透 1、概念 缓存穿">
+<meta property="og:description" content="帮你解读什么是Redis缓存穿透和缓存雪崩（包含解决方案）">
 <meta property="og:image" content="https:&#x2F;&#x2F;pics6.baidu.com&#x2F;feed&#x2F;21a4462309f79052696269b62519dfcc7acbd52d.jpeg?token&#x3D;77d2a5fe27c3fd42d7ae7a07d68fadec&amp;s&#x3D;7DA434729B0A4D495EE195DF000050B3">
 <meta property="og:image" content="https:&#x2F;&#x2F;pics6.baidu.com&#x2F;feed&#x2F;d788d43f8794a4c2773846a5251e13d3ac6e3910.jpeg?token&#x3D;029a90d30125df6852018a7e4e7294ff&amp;s&#x3D;1AA27423D99E44C80E5CE5DE000080B1">
 <meta property="og:image" content="https:&#x2F;&#x2F;pics6.baidu.com&#x2F;feed&#x2F;203fb80e7bec54e7a4ba970397d293564ec26a4d.jpeg?token&#x3D;0068420533f90cb97750b10ce30053b8&amp;s&#x3D;9A027C239B9E4DC848DDC4D6000080B2">
@@ -183,9 +183,10 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <a id="more"></a>
+        <p>帮你解读什么是Redis缓存穿透和缓存雪崩（包含解决方案）</p>
+<a id="more"></a>
 
-<h2 id="帮你解读什么是Redis缓存穿透和缓存雪崩（包含解决方案）"><a href="#帮你解读什么是Redis缓存穿透和缓存雪崩（包含解决方案）" class="headerlink" title="帮你解读什么是Redis缓存穿透和缓存雪崩（包含解决方案）"></a>帮你解读什么是Redis缓存穿透和缓存雪崩（包含解决方案）</h2><p>作为一个内存数据库，redis也总是免不了有各种各样的问题，这篇文章主要是针对其中两个问题进行讲解：缓存穿透和缓存雪崩。并给出一些解决方案。这两个问题是基本问题也是面试常问问题。</p>
+<p>作为一个内存数据库，redis也总是免不了有各种各样的问题，这篇文章主要是针对其中两个问题进行讲解：缓存穿透和缓存雪崩。并给出一些解决方案。这两个问题是基本问题也是面试常问问题。</p>
 <p><strong>这篇文章我参考了很多篇，发现写的基本上一样，所以在此基础之上进行改进。内容是我在某字母网站看的尚硅谷的教程总结的。特在此说明。</strong></p>
 <p><strong>一、缓存穿透</strong></p>
 <p><strong>1、概念</strong></p>
@@ -370,7 +371,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#帮你解读什么是Redis缓存穿透和缓存雪崩（包含解决方案）"><span class="toc-number">1.</span> <span class="toc-text">帮你解读什么是Redis缓存穿透和缓存雪崩（包含解决方案）</span></a></li></ol>
+                    目录，不存在的…
                     </div>
                 </span>
             </div>
@@ -482,10 +483,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">profile</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">java</a>
               </li>
              
@@ -494,15 +491,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">publish</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">word</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">login</a>
               </li>
              
               <li class="article-tag-list-item">

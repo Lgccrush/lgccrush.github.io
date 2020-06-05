@@ -8,12 +8,12 @@
   <link rel="dns-prefetch" href="http://yoursite.com">
   <title>Redis的过期策略和内存淘汰机制 | Fighting</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Redis的过期策略和内存淘汰机制过期策略　　我们set key的时候，都可以给一个expire time，就是过期时间，指定这个key比如说只能存活1个小时，我们自己可以指定缓存到期就失效。 　　如果假设你设置一个一批key只能存活1个小时，那么接下来1小时后，redis是怎么对这批key进行删除的？ 　　答案是：定期删除+惰性删除 　　所谓定期删除，指的是redis默认是每隔100ms就随">
+  <meta name="description" content="Redis的过期策略和内存淘汰机制">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Redis的过期策略和内存淘汰机制">
 <meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2020&#x2F;06&#x2F;05&#x2F;Redis%E7%9A%84%E8%BF%87%E6%9C%9F%E7%AD%96%E7%95%A5%E5%92%8C%E5%86%85%E5%AD%98%E6%B7%98%E6%B1%B0%E6%9C%BA%E5%88%B6&#x2F;index.html">
 <meta property="og:site_name" content="Fighting">
-<meta property="og:description" content="Redis的过期策略和内存淘汰机制过期策略　　我们set key的时候，都可以给一个expire time，就是过期时间，指定这个key比如说只能存活1个小时，我们自己可以指定缓存到期就失效。 　　如果假设你设置一个一批key只能存活1个小时，那么接下来1小时后，redis是怎么对这批key进行删除的？ 　　答案是：定期删除+惰性删除 　　所谓定期删除，指的是redis默认是每隔100ms就随">
+<meta property="og:description" content="Redis的过期策略和内存淘汰机制">
 <meta property="article:published_time" content="2020-06-05T15:26:36.000Z">
 <meta property="article:modified_time" content="2020-06-05T15:26:36.000Z">
 <meta property="article:author" content="Crush">
@@ -178,9 +178,9 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <a id="more"></a>
+        <h1 id="Redis的过期策略和内存淘汰机制"><a href="#Redis的过期策略和内存淘汰机制" class="headerlink" title="Redis的过期策略和内存淘汰机制"></a><a href="https://www.cnblogs.com/mengchunchen/p/10039467.html" target="_blank" rel="noopener">Redis的过期策略和内存淘汰机制</a></h1><a id="more"></a>
 
-<h1 id="Redis的过期策略和内存淘汰机制"><a href="#Redis的过期策略和内存淘汰机制" class="headerlink" title="Redis的过期策略和内存淘汰机制"></a><a href="https://www.cnblogs.com/mengchunchen/p/10039467.html" target="_blank" rel="noopener">Redis的过期策略和内存淘汰机制</a></h1><h1 id="过期策略"><a href="#过期策略" class="headerlink" title="过期策略"></a>过期策略</h1><p>　　我们set key的时候，都可以给一个expire time，就是过期时间，指定这个key比如说只能存活1个小时，我们自己可以指定缓存到期就失效。</p>
+<h1 id="过期策略"><a href="#过期策略" class="headerlink" title="过期策略"></a>过期策略</h1><p>　　我们set key的时候，都可以给一个expire time，就是过期时间，指定这个key比如说只能存活1个小时，我们自己可以指定缓存到期就失效。</p>
 <p>　　如果假设你设置一个一批key只能存活1个小时，那么接下来1小时后，redis是怎么对这批key进行删除的？</p>
 <p>　　答案是：定期删除+惰性删除</p>
 <p>　　所谓定期删除，指的是redis默认是每隔100ms就随机抽取一些设置了过期时间的key，检查其是否过期，如果过期就删除。</p>
@@ -466,10 +466,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">profile</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">java</a>
               </li>
              
@@ -478,15 +474,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">publish</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">word</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">login</a>
               </li>
              
               <li class="article-tag-list-item">
