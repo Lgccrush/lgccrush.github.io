@@ -6,18 +6,15 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Swagger 注解 | Fighting</title>
+  <title>Tag: password miss | Fighting</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="swagger2 注解说明">
-<meta property="og:type" content="article">
-<meta property="og:title" content="Swagger 注解">
-<meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2020&#x2F;06&#x2F;14&#x2F;Swagger-%E6%B3%A8%E8%A7%A3&#x2F;index.html">
+  <meta name="description" content="自律">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Fighting">
+<meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;tags&#x2F;password-miss&#x2F;index.html">
 <meta property="og:site_name" content="Fighting">
-<meta property="og:description" content="swagger2 注解说明">
-<meta property="article:published_time" content="2020-06-14T13:45:33.000Z">
-<meta property="article:modified_time" content="2020-06-14T13:45:33.000Z">
+<meta property="og:description" content="自律">
 <meta property="article:author" content="Crush">
-<meta property="article:tag" content="swagger">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternative" href="/atom.xml" title="Fighting" type="application/atom+xml">
@@ -158,219 +155,71 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-Swagger-注解" class="article article-type-post " itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
+            
   
-    <h1 class="article-title" itemprop="name">
-      Swagger 注解
+  
+    
+    
+      
+      
+      <section class="archives-wrap">
+        <div class="archive-year-wrap">
+          <a href="/archives/2020" class="archive-year">2020</a>
+        </div>
+        <div class="archives">
+    
+    <article class="archive-article archive-type-post">
+  <div class="archive-article-inner">
+    <header class="archive-article-header">
+      	<div class="article-meta">
+	      	<a href="/2020/06/16/%E7%99%BB%E5%BD%95-%E5%AF%86%E7%A0%81%E9%94%99%E8%AF%AF%E5%A4%84%E7%90%86%E5%8A%9F%E8%83%BD/" class="archive-article-date">
+  	<time datetime="2020-06-16T12:30:23.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-06-16</time>
+</a>
+        </div>
+    	 
+  
+    <h1 itemprop="name">
+      <a class="archive-article-title" href="/2020/06/16/%E7%99%BB%E5%BD%95-%E5%AF%86%E7%A0%81%E9%94%99%E8%AF%AF%E5%A4%84%E7%90%86%E5%8A%9F%E8%83%BD/">登录-密码错误处理功能</a>
     </h1>
   
 
-        
-        <a href="/2020/06/14/Swagger-%E6%B3%A8%E8%A7%A3/" class="archive-article-date">
-  	<time datetime="2020-06-14T13:45:33.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-06-14</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="swagger2-注解说明"><a href="#swagger2-注解说明" class="headerlink" title="swagger2 注解说明"></a>swagger2 注解说明</h3><a id="more"></a>
-
-<p>1、@Api：用在请求的类上，说明该类的作用<br>   tags=”说明该类的作用”<br>   value=”该参数没什么意义，所以不需要配置”<br>示例：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">@Api(tags&#x3D;&quot;APP用户注册Controller&quot;)</span></pre></td></tr></table></figure>
-
-<p>2、@ApiOperation：用在请求的方法上，说明方法的作用<br>@ApiOperation：”用在请求的方法上，说明方法的作用”<br>  value=”说明方法的作用”<br>  notes=”方法的备注说明”<br>示例：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">@ApiOperation(value&#x3D;&quot;用户注册&quot;,notes&#x3D;&quot;手机号、密码都是必输项，年龄随边填，但必须是数字&quot;)</span></pre></td></tr></table></figure>
-
-<p>3、@ApiImplicitParams：用在请求的方法上，包含一组参数说明<br>   @ApiImplicitParams：用在请求的方法上，包含一组参数说明<br>   @ApiImplicitParam：用在 @ApiImplicitParams 注解中，指定一个请求参数的配置信息<br>    name：参数名<br>    value：参数的汉字说明、解释<br>    required：参数是否必须传<br>    paramType：参数放在哪个地方<br>      · header –&gt; 请求参数的获取：@RequestHeader<br>      · query –&gt; 请求参数的获取：@RequestParam<br>      · path（用于restful接口）–&gt; 请求参数的获取：@PathVariable<br>      · body（不常用）<br>      · form（不常用）<br>    dataType：参数类型，默认String，其它值dataType=”Integer”<br>    defaultValue：参数的默认值</p>
-<p>示列：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line"><span class="meta">@ApiImplicitParams</span>(&#123;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line">    <span class="meta">@ApiImplicitParam</span>(name=<span class="string">"mobile"</span>,value=<span class="string">"手机号"</span>,required=<span class="keyword">true</span>,paramType=<span class="string">"form"</span>),</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line">    <span class="meta">@ApiImplicitParam</span>(name=<span class="string">"password"</span>,value=<span class="string">"密码"</span>,required=<span class="keyword">true</span>,paramType=<span class="string">"form"</span>),</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">4</span></pre></td><td class="code"><pre><span class="line">    <span class="meta">@ApiImplicitParam</span>(name=<span class="string">"age"</span>,value=<span class="string">"年龄"</span>, 				          		   required=<span class="keyword">true</span>,paramType=<span class="string">"form"</span>, dataType=<span class="string">"Integer"</span>)</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">5</span></pre></td><td class="code"><pre><span class="line">&#125;)</span></pre></td></tr></table></figure>
-
-<p>4、@ApiResponses：用于请求的方法上，表示一组响应<br>   @ApiResponses：用于请求的方法上，表示一组响应<br>   @ApiResponse：用在@ApiResponses中，一般用于表达一个错误的响应信息<br>    code：数字，例如400<br>    message：信息，例如”请求参数没填好”<br>    response：抛出异常的类<br>示例：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line"><span class="meta">@ApiOperation</span>(value = <span class="string">"select1请求"</span>,notes = <span class="string">"多个参数，多种的查询参数类型"</span>)</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line"><span class="meta">@ApiResponses</span>(&#123;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line">   <span class="meta">@ApiResponse</span>(code=<span class="number">400</span>,message=<span class="string">"请求参数没填好"</span>),</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">4</span></pre></td><td class="code"><pre><span class="line">   <span class="meta">@ApiResponse</span>(code=<span class="number">404</span>,message=<span class="string">"请求路径没有或页面跳转路径不对"</span>)</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">5</span></pre></td><td class="code"><pre><span class="line">&#125;)</span></pre></td></tr></table></figure>
-
-
-<p>5、@ApiModel：用于响应类上，表示一个返回响应数据的信息<br>   @ApiModel：用于响应类上，表示一个返回响应数据的信息<br>      （这种一般用在post创建的时候，使用@RequestBody这样的场景，<br>      请求参数无法使用@ApiImplicitParam注解进行描述的时候）<br>   @ApiModelProperty：用在属性上，描述响应类的属性</p>
-<p>示例:</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> io.swagger.annotations.ApiModel;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> io.swagger.annotations.ApiModelProperty;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.io.Serializable;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">4</span></pre></td><td class="code"><pre><span class="line"><span class="meta">@ApiModel</span>(description= <span class="string">"返回响应数据"</span>)</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">5</span></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">RestMessage</span> <span class="keyword">implements</span> <span class="title">Serializable</span></span>&#123;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">6</span></pre></td><td class="code"><pre><span class="line">    <span class="meta">@ApiModelProperty</span>(value = <span class="string">"是否成功"</span>)</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">7</span></pre></td><td class="code"><pre><span class="line">    <span class="keyword">private</span> <span class="keyword">boolean</span> success=<span class="keyword">true</span>;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">8</span></pre></td><td class="code"><pre><span class="line">    </span></pre></td></tr><tr><td class="gutter"><pre><span class="line">9</span></pre></td><td class="code"><pre><span class="line">    <span class="meta">@ApiModelProperty</span>(value = <span class="string">"返回对象"</span>)</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">10</span></pre></td><td class="code"><pre><span class="line">    <span class="keyword">private</span> Object data;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">11</span></pre></td><td class="code"><pre><span class="line">    </span></pre></td></tr><tr><td class="gutter"><pre><span class="line">12</span></pre></td><td class="code"><pre><span class="line">    <span class="meta">@ApiModelProperty</span>(value = <span class="string">"错误编号"</span>)</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">13</span></pre></td><td class="code"><pre><span class="line">    <span class="keyword">private</span> Integer errCode;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">14</span></pre></td><td class="code"><pre><span class="line">    </span></pre></td></tr><tr><td class="gutter"><pre><span class="line">15</span></pre></td><td class="code"><pre><span class="line">    <span class="meta">@ApiModelProperty</span>(value = <span class="string">"错误信息"</span>)</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">16</span></pre></td><td class="code"><pre><span class="line">    <span class="keyword">private</span> String message;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">17</span></pre></td><td class="code"><pre><span class="line">    <span class="comment">/* getter/setter */</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">18</span></pre></td><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">19</span></pre></td><td class="code"><pre><span class="line">&#125;</span></pre></td></tr></table></figure>
-
-
-      
-
-      
-        <div class="page-reward">
-          <a href="javascript:;" class="page-reward-btn tooltip-top">
-            <div class="tooltip tooltip-east">
-            <span class="tooltip-item">
-              赏
-            </span>
-            <span class="tooltip-content">
-              <span class="tooltip-text">
-                <span class="tooltip-inner">
-                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
-                  <div class="reward-box">
-                    
-                    
-                  </div>
-                </span>
-              </span>
-            </span>
-          </div>
-          </a>
-        </div>
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
+        <div class="article-info info-on-right">
+          
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">swagger</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">password miss</a>
         		</li>
       		
 		</ul>
 	</div>
 
-      
+          
 	<div class="article-category tagcloud">
 		<i class="icon-book icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="/categories/swagger//" class="article-tag-list-link color3">swagger</a>
+        			<a href="/categories/login//" class="article-tag-list-link color1">login</a>
         		</li>
       		
 		</ul>
 	</div>
 
 
-      
-
-      
-        
-<div class="share-btn share-icons tooltip-left">
-  <div class="tooltip tooltip-east">
-    <span class="tooltip-item">
-      <a href="javascript:;" class="share-sns share-outer">
-        <i class="icon icon-share"></i>
-      </a>
-    </span>
-    <span class="tooltip-content">
-      <div class="share-wrap">
-        <div class="share-icons">
-          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
-            <i class="icon icon-weibo"></i>
-          </a>
-          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
-            <i class="icon icon-weixin"></i>
-          </a>
-          <a class="qq share-sns" href="javascript:;" data-type="qq">
-            <i class="icon icon-qq"></i>
-          </a>
-          <a class="douban share-sns" href="javascript:;" data-type="douban">
-            <i class="icon icon-douban"></i>
-          </a>
-          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
-            <i class="icon icon-qzone"></i>
-          </a>
-          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
-            <i class="icon icon-facebook"></i>
-          </a>
-          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
-            <i class="icon icon-twitter"></i>
-          </a>
-          <a class="google share-sns" href="javascript:;" data-type="google">
-            <i class="icon icon-google"></i>
-          </a>
         </div>
-      </div>
-    </span>
-  </div>
-</div>
-
-<div class="page-modal wx-share js-wx-box">
-    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
-    <p>扫一扫，分享到微信</p>
-    <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2020/06/14/Swagger-%E6%B3%A8%E8%A7%A3/" alt="微信分享二维码">
-    </div>
-</div>
-
-<div class="mask js-mask"></div>
-      
-      <div class="clearfix"></div>
-    </div>
+        <div class="clearfix"></div>
+    </header>
   </div>
 </article>
-
-  
-<nav id="article-nav">
-  
-    <a href="/2020/06/16/%E7%99%BB%E5%BD%95-%E5%AF%86%E7%A0%81%E9%94%99%E8%AF%AF%E5%A4%84%E7%90%86%E5%8A%9F%E8%83%BD/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          登录-密码错误处理功能
-        
-      </div>
-    </a>
   
   
-    <a href="/2020/06/14/mysql%E5%BC%80%E5%90%AF%E8%BF%9C%E7%A8%8B%E8%BF%9E%E6%8E%A5/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">mysql开启远程连接</div>
-      <i class="icon-circle-right"></i>
-    </a>
-  
-</nav>
-
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-        <div class="toc-container tooltip-left">
-            <i class="icon-font icon-category"></i>
-            <div class="tooltip tooltip-east">
-                <span class="tooltip-item">
-                </span>
-                <span class="tooltip-content">
-                    <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#swagger2-注解说明"><span class="toc-number">1.</span> <span class="toc-text">swagger2 注解说明</span></a></li></ol>
-                    </div>
-                </span>
-            </div>
-        </div>
-        
-    </div>
-</aside>
-
-
-
-  
-  
+    </div></section>
   
 
-  
-
-  
-
-  
+    
 
 
           </div>
@@ -393,9 +242,9 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: true,
+		isPost: false,
 		isArchive: false,
-		isTag: false,
+		isTag: true,
 		isCategory: false,
 		open_in_new: false,
 		toc_hide_index: true,
